@@ -43,3 +43,6 @@ Please to read the source code and annotations
 The figure shows the predict and label, for example, a couple of red lines, the upper is label, the lower is predict
 
 ![](./result/result.png)
+
+# 如果您觉得有用，请给我一个star，谢谢
+ If it be helpful to you ,please give me a star. Thanks
