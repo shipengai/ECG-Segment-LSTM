@@ -1,0 +1,8 @@
+sel51 2 250 224993
+sel51.dat 212 600 12 0 -63 11458 0 ECG1
+sel51.dat 212 600 12 0 -53 27262 0 ECG2
+#Produced by xform from record 51, beginning at 0
+#Produced by xform from record 51, beginning at 55:00.000
+#------------------------------------------
+#Produced by "delay" from record sel51
+#The signal 0 was delayed with a delay=7 samples

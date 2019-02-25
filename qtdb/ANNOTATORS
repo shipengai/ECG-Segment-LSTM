@@ -1,0 +1,9 @@
+atr	reference beat annotations
+man	reference beat annotations for selected beats only
+q1c	manually determined boundaries, annotator 1 (second pass)
+q2c	manually determined boundaries, annotator 2 (second pass)
+qt1	manually determined boundaries, annotator 1 (first pass)
+qt2	manually determined boundaries, annotator 2 (first pass)
+pu	automatically determined boundaries (based on both signals)
+pu0	automatically determined boundaries (based on signal 0 only)
+pu1	automatically determined boundaries (based on signal 1 only)

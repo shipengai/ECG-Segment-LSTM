@@ -32,6 +32,12 @@ This project achieved ECG signal wave segmentation,by using LSTM net.There are s
 
   run `python model_lstm.py` to training LSTM Net, its result will be in folder "ckpt"
 
+一个心跳的各个波形的标注
+
+The characteristic waves of a heart beat
+
+![](./result/basic-img1.png)
+
 阅读源代码和注释
 
 Please to read the source code and annotations
@@ -42,7 +48,16 @@ Please to read the source code and annotations
 
 The figure shows the predict and label, for example, a couple of red lines, the upper is label, the lower is predict
 
+![](./result/result_heartbeat.png)
+
+
+下面为连续heart beat的预测结果图
+
+several continue heart beat segment
+
 ![](./result/result.png)
 
-# 如果您觉得有用，请给我一个star，谢谢
- If it be helpful to you ,please give me a star. Thanks
+## Network
+2层双向LSTM构成特征提取层，2个使用了dropout的全连接层，最后一个softmax的输出层
+
+two-layers bi-LSTM + two Linear layer with dropout + softmax output

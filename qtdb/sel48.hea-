@@ -1,0 +1,8 @@
+sel48 2 250 224993
+sel48.dat 212 200 12 0 29 255 0 record 48, signal 0
+sel48.dat 212 200 12 0 14 -13525 0 record 48, signal 1
+#Produced by xform from record 48, beginning at 7:45.000
+#Produced by xform from record 48, beginning at 7:11:00.000
+#------------------------------------------
+#Produced by "/files2/scheherazade/plaguna/database/delay" from record sel48
+#The signal 0 was delayed with a delay=7 samples

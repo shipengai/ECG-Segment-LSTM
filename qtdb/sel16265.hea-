@@ -1,0 +1,4 @@
+sel16265 2 250/128 224999
+sel16265.dat 212 200 12 0 -53 29461 0 record mqt2, signal 0
+sel16265.dat 212 200 12 0 -11 -27168 0 record mqt2, signal 1
+#Produced by xform from record mqt2, beginning at 10:37:30.000

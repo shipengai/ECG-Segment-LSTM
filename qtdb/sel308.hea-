@@ -1,0 +1,4 @@
+sel308 2 250/360 225000
+sel308.dat 212 200 12 0 -21 -22741 0 record 308, signal 0
+sel308.dat 212 200 12 0 -4 -18505 0 record 308, signal 1
+#Produced by xform from record 308, beginning at 13:00.000

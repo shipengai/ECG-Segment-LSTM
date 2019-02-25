@@ -1,0 +1,4 @@
+sel310 2 250/360 225000
+sel310.dat 212 200 12 0 -29 20824 0 record 310, signal 0
+sel310.dat 212 200 12 0 -2 17887 0 record 310, signal 1
+#Produced by xform from record 310, beginning at 4:00.000

@@ -1,0 +1,4 @@
+sel872 2 250/128 224999
+sel872.dat 212 200 12 0 -15 2357 0 ECG1
+sel872.dat 212 200 12 0 -25 -8260 0 ECG2
+#Produced by xform from record 872, beginning at 0

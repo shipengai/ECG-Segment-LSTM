@@ -1,0 +1,8 @@
+sel35 2 250 224993
+sel35.dat 212 200 12 0 -6 23986 0 record 35, signal 0
+sel35.dat 212 200 12 0 -9 -8687 0 record 35, signal 1
+#Produced by xform_new from record 35, beginning at 0
+#Produced by xform from record 35, beginning at 4:52:00.000
+#------------------------------------------
+#Produced by "/files2/scheherazade/plaguna/database/delay" from record sel35
+#The signal 0 was delayed with a delay=7 samples

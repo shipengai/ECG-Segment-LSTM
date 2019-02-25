@@ -1,0 +1,10 @@
+sel232 2 250/360 225000
+sel232.dat 212 200 12 0 -43 3027 0 MLII
+sel232.dat 212 200 12 0 23 -23735 0 V1
+# 76 F 2777 3655 x2
+# Aldomet, Inderal
+# The rhythm is compatible with sick sinus syndrome.  There is underlying
+# sinus bradycardia, first degree AV block, and frequent ectopic atrial runs
+# at rates of 80 to 90 bpm.  There are numerous long pauses up to 6 seconds
+# in duration.
+#Produced by xform from record 232, beginning at 15:00.000

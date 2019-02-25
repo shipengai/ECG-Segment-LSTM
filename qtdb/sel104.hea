@@ -1,0 +1,9 @@
+sel104 2 250/360 225000
+sel104.dat 212 200(0) 11 1024 979 -28860 0 V5
+sel104.dat 212 200(0) 11 1024 1050 -19543 0 V2
+# 66 F 1567 694 x1
+# Digoxin, Pronestyl
+# The rate of paced rhythm is close to that of the underlying sinus rhythm,
+# resulting in many pacemaker fusion beats.  The PVCs are multiform.  Several
+# bursts of muscle noise occur, but the signals are generally of good quality.
+#Produced by xform from record 104, beginning at 15:00.000

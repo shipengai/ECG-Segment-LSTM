@@ -1,0 +1,3 @@
+-r sel32
+-a man
+-p http://physionet.org/physiobank/database/qtdb/sel32.xws

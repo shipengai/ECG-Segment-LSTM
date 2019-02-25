@@ -1,0 +1,8 @@
+sel38 2 250 224993
+sel38.dat 212 200 12 0 -89 30627 0 ECG1
+sel38.dat 212 200 12 0 -34 12997 0 ECG2
+#Produced by xform from record 38, beginning at 8:55.000
+#Produced by xform from record 38, beginning at 5:00:00.000
+#------------------------------------------
+#Produced by "/files2/scheherazade/plaguna/database/delay" from record sel38
+#The signal 0 was delayed with a delay=7 samples

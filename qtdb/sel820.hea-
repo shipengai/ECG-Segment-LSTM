@@ -1,0 +1,4 @@
+sel820 2 250/128 224999
+sel820.dat 212 0 12 0 1 13458 0 record 820, signal 0
+sel820.dat 212 0 12 0 -17 16557 0 record 820, signal 1
+#Produced by xform from record 820, beginning at 0

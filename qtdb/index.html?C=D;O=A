@@ -1,0 +1,1525 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset=utf-8>
+
+    
+
+<title>The QT Database</title>
+<link rel="stylesheet" href="/pn/print.css" type="text/css" media="print">
+<link rel="stylesheet" href="/pn/css/physionet.css" media="all">
+
+<link rel="stylesheet" href="local.css" type="text/css" media="all">
+
+<style>
+#toc, #doi { margin-right: 1em; }
+
+ 
+ 
+#toc, #doi { background: #ecf3ff; border: solid 2px #38388B }
+.sf-menu > li > a { background:  #dfe9ff; }
+
+h1, h2, h3 { color: #38388B;
+             background: #dfe9ff; }
+a[href^='http://physionet.org']
+ { background: none; padding-right: 0; }
+</style>
+<script src="/pn/js/jquery.min.js"></script>
+<script src="/pn/js/hoverIntent.js"></script>
+<script src="/pn/js/superfish.min.js"></script>
+<script src="/pn/js/accessible-superfish.js"></script>
+<script src="/pn/js/physionet.js"></script>
+<script src="/pn/js/jquery.tableofcontents.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $('ul.sf-menu').superfish({ autoArrows: false });
+
+    if ($('h2').length) {
+      $('#tocwrapper').append('<ul id="toc"></ul>');
+      $('#toc').tableOfContents(null, { startLevel: 2 });
+
+    }
+
+  });
+</script>
+
+
+</head>
+
+<body>
+
+  <header class="banner">
+    <a class="hide" href="#content">Skip to content</a>
+    <div style="width: 100%; float: left; background-color: #38388B; min-width: 700px; padding: 0;">
+      <div class="topmenu" style="float: left; padding: 0.5em 2em 0.5em 0.5em;">
+	<!--	  <ul class="sf-menu sf-shadow sf-arrows"  >-->
+	<ul class="sf-menu">
+<li class="sfHover"><a style="text-align:center" href="https://physionet.org/" class="sf-with-ul"><span style="font-family: Georgia, Times, serif; font-variant: small-caps; padding-right: 4em; margin-right: 2em;"><b>PhysioNet</b></span><span class="arrow-down" role="presentation"></span></a>
+<!--<ul class="pntop">-->
+<ul>
+<li><a href="/news.shtml" class="sf-with-ul">What's New?<span class="arrow-right" role="presentation"></span></a>
+<ul>
+<li><a href="/news.shtml">News from PhysioNet</a></li>
+<li><a href="/in-the-news.shtml">PhysioNet in the News</a></li>
+<li><a href="/training.shtml">Training opportunities</a></li>
+</ul></li>
+<li><a href="/site-map.shtml" class="sf-with-ul">
+<span style="font-family: Georgia, Times, serif; font-variant: small-caps;"><b>PhysioNet Library</b><span class="arrow-right" role="presentation"></span></span></a>
+<ul>
+<li><a href="/about.shtml">About PhysioNet</a></li>
+<li><a href="/challenge/" class="sf-with-ul">Challenges<span class="arrow-right" role="presentation"></span></a>
+<ul>
+<li><a href="/challenge/2018/">2018</a></li>
+<li><a href="/challenge/2017/">2017</a></li>
+<li><a href="/challenge/2016/">2016</a></li>
+<li><a href="/challenge/2015/">2015</a></li>
+<li><a href="/challenge/2014/">2014</a></li>
+<li><a href="/challenge/">Previous challenges</a></li>
+</ul></li>
+<li><a href="/contributors/">Contributors</a></li>
+<li><a href="/pn-citations.shtml" class="sf-with-ul">Publications<span class="arrow-right" role="presentation"></span></a>
+<ul>
+<li><a href="/publications/resource-pubs.shtml">from the PhysioNet team</a></li>
+<li><a href="/pn-citations.shtml">citing PhysioNet</a></li>
+<li><a href="/publications/#papers-with-data-and-software">with data and software</a></li>
+<li><a href="/publications/#papers-with-data">with data</a></li>
+<li><a href="/publications/#papers-with-software">with software</a></li>
+</ul></li>
+<li><a href="/tutorials/" class="sf-with-ul">Tutorials<span class="arrow-right" role="presentation"></span></a>
+<ul>
+<li><a href="/tutorials/">Concise tutorials</a></li>
+<li><a href="/tutorials/#workshops">Workshops</a></li>
+<li><a href="/tutorials/#reference">Reference guides</a></li>
+<li><a href="/tutorials/#other">External Resources</a></li>
+</ul></li>
+<li><a href="/other-links.shtml">External Resources</a></li>
+</ul></li>
+<li class="pb"><a href="/physiobank/database/" class="sf-with-ul"> <span style="font-family: Georgia, Times, serif; font-variant: small-caps;"><b>PhysioBank</b><span class="arrow-right" role="presentation"></span></span></a>
+<ul>
+<li><a href="/physiobank/about.shtml">About PhysioBank</a></li>
+<li><a href="/physiobank/database/" class="sf-with-ul">Databases<span class="arrow-right" role="presentation"></span></a>
+<ul>
+<li><a href="/physiobank/database/#clinical">Clinical Databases</a></li>
+<li><a href="/physiobank/database/#waveform" class="sf-with-ul">Waveform Databases<span class="arrow-right" role="presentation"></span></a>
+  <ul>
+    <li><a href="/physiobank/database/#multi">Multi-parameter</a></li>
+    <li><a href="/physiobank/database/#ecg">ECG</a></li>
+    <li><a href="/physiobank/database/#rr">RR intervals</a></li>
+    <li><a href="/physiobank/database/#gait">Gait and balance</a></li>
+    <li><a href="/physiobank/database/#neuro">Neuro- and myoelectric</a></li>
+    <li><a href="/physiobank/database/#image">Images</a></li>
+    <li><a href="/physiobank/database/#synthetic">Synthetic</a></li>
+  </ul>
+</li>
+</ul></li>
+<li><a href="/lightwave/">LightWAVE</a></li>
+<li><a href="/cgi-bin/ATM">PhysioBank ATM</a></li>
+<li><a href="/cgi-bin/pbsearch">PhysioBank Search</a></li>
+<li><a href="/physiobank/other.shtml">External Resources</a></li>
+</ul></li>
+<li class="pt"><a href="/physiotools/" class="sf-with-ul"> <span style="font-family: Georgia, Times, serif; font-variant: small-caps;"><b>PhysioToolkit</b><span class="arrow-right" role="presentation"></span></span></a>
+<ul>
+<li><a href="/physiotools/about.shtml">About PhysioToolkit</a></li>
+<li><a href="/physiotools/software-index.shtml" class="sf-with-ul">Software Index<span class="arrow-right" role="presentation"></span></a>
+<ul>
+<li><a href="/physiotools/software-index.shtml#pbdv" class="sf-with-ul">Data visualization<span class="arrow-right" role="presentation"></span></a>
+<ul>
+<li><a href="/physiotools/software-index.shtml#pbdv">PhysioBank</a></li>
+<li><a href="/physiotools/software-index.shtml#gpdv">General</a></li>
+</ul></li>
+<li><a href="/physiotools/software-index.shtml#pbdm">Data mining</a>
+</li><li><a href="/physiotools/software-index.shtml#fc" class="sf-with-ul">Data import/export<span class="arrow-right" role="presentation"></span></a>
+<ul>
+<li><a href="/physiotools/software-index.shtml#fc">Format conversion</a></li>
+<li><a href="/physiotools/software-index.shtml#cpcr">Record creation</a></li>
+</ul></li>
+<li><a href="/physiotools/software-index.shtml#deid">Deidentification</a></li>
+<li><a href="/physiotools/software-index.shtml#psp" class="sf-with-ul">Signal processing<span class="arrow-right" role="presentation"></span></a>
+<ul>
+<li><a href="/physiotools/software-index.shtml#psp">Physiologic</a></li>
+<li><a href="/physiotools/software-index.shtml#gsp">General</a></li>
+</ul></li>
+<li><a href="/physiotools/software-index.shtml#fdats" class="sf-with-ul">Time series analysis<span class="arrow-right" role="presentation"></span></a>
+<ul>
+<li><a href="/physiotools/software-index.shtml#fdats">Frequency-domain</a></li>
+<li><a href="/physiotools/software-index.shtml#nats">Nonlinear</a></li>
+<li><a href="/physiotools/software-index.shtml#hrv">Heart rate variability</a></li>
+</ul></li>
+<li><a href="/physiotools/software-index.shtml#pms">Models and simulation</a></li>
+<li><a href="/physiotools/software-index.shtml#lib" class="sf-with-ul">Software development<span class="arrow-right" role="presentation"></span></a>
+<ul>
+<li><a href="/physiotools/software-index.shtml#lib">Libraries and tools</a></li>
+<li><a href="/physiotools/software-index.shtml#eea">Device Evaluation</a></li>
+</ul></li>
+<li><a href="/physiotools/software-index.shtml#misc">Miscellaneous</a></li>
+</ul></li>
+<li><a href="/physiotools/matlab/" class="sf-with-ul">MATLAB software<span class="arrow-right" role="presentation"></span></a>
+<ul>
+<li><a href="/physiotools/matlab/wfdb-app-matlab/">WFDB Toolbox for ML</a></li>
+<li><a href="/physiotools/matlab/">Other</a></li>
+</ul></li>
+<li><a href="/physiotools/wfdb.shtml" class="sf-with-ul">WFDB software<span class="arrow-right" role="presentation"></span></a>
+<ul>
+<li><a href="/physiotools/wfdb-freebsd-quick-start.shtml">FreeBSD</a></li>
+<li><a href="/physiotools/wfdb-linux-quick-start.shtml">GNU/Linux</a></li>
+<li><a href="/physiotools/wfdb-darwin-quick-start.shtml">Mac OS X</a></li>
+<li><a href="/physiotools/wfdb-windows-quick-start.shtml">MS-Windows</a></li>
+<li><a href="/physiotools/wfdb-solaris-quick-start.shtml">Solaris</a></li>
+</ul></li>
+<li><a href="/physiotools/manuals.shtml" class="sf-with-ul">Manuals<span class="arrow-right" role="presentation"></span></a>
+<ul>
+<li><a href="/physiotools/wpg/">WFDB Programming</a></li>
+<li><a href="/physiotools/wag/">WFDB Applications</a></li>
+<li><a href="/physiotools/wug/">WAVE</a></li>
+<li><a href="/physiotools/rcvsim/doc/manual/">RCVSIM</a></li>
+<li><a href="/physiotools/plt/plt/html/">plt</a></li>
+<li><a target="other" class="plain" href="http://www.lulu.com/spotlight/physionet/">Bookstore</a></li>
+</ul></li>
+<li><a href="/physiotools/other.shtml">External Resources</a></li>
+</ul></li>
+<li class="pw"><a href="https://physionet.org/users/" class="sf-with-ul"> <span style="font-family: Georgia, Times, serif; font-variant: small-caps;"><b>PhysioNetWorks</b><span class="arrow-right" role="presentation"></span></span></a>
+<ul>
+<li><a href="https://physionet.org/users/">About PhysioNetWorks</a></li>
+<li><a href="https://physionet.org/users/home/"><em>User Home Page*</em></a></li>
+<li><a href="https://physionet.org/users/login.shtml">Login / Create an Account</a></li>
+<li><a href="https://physionet.org/works/"><em>Works in Progress*</em></a></li>
+<li><a href="https://physionet.org/users/help/data-sharing/">Data Sharing</a></li>
+<li><a href="https://physionet.org//users/help/pnw-howto.shtml">PhysioNetWorks Project Guide</a></li>
+<li><a href="https://physionet.org/users/help/">PhysioNetWorks Help</a></li>
+<li class="menu-note">* login required&nbsp;</li>
+</ul></li>
+<li><a href="/faq.shtml" class="sf-with-ul">Help<span class="arrow-right" role="presentation"></span></a>
+<ul>
+<li><a href="/faq.shtml" class="sf-with-ul">FAQ<span class="arrow-right" role="presentation"></span></a>
+<ul>
+<li><a href="/faq.shtml#topquestions">Top questions</a></li>
+<li><a href="/faq.shtml#general">General</a></li>
+<li><a href="/faq.shtml#sign-in">Sign-in and passwords</a></li>
+<li><a href="/faq.shtml#where-is">Where is ...?</a></li>
+<li><a href="/faq.shtml#downloading">Downloading</a></li>
+<li><a href="/faq.shtml#physiobank">PhysioBank</a></li>
+<li><a href="/faq.shtml#signals">Signals</a></li>
+<li><a href="/faq.shtml#annotations">Annotations</a></li>
+<li><a href="/faq.shtml#software">Software</a></li>
+<li><a href="/faq.shtml#help">Help!</a></li>
+</ul></li>
+<li><a href="/site-map.shtml">Site map</a></li>
+<li><a href="/tutorials/" class="sf-with-ul">Tutorials<span class="arrow-right" role="presentation"></span></a>
+<ul>
+<li><a href="/tutorials/">Concise tutorials</a></li>
+<li><a href="/tutorials/#workshops">Workshops</a></li>
+<li><a href="/tutorials/#reference">Reference guides</a></li>
+<li><a href="/tutorials/#other">External Resources</a></li>
+</ul></li>
+<li><a href="/physiotools/manuals.shtml" class="sf-with-ul">Manuals<span class="arrow-right" role="presentation"></span></a>
+<ul>
+<li><a href="/physiotools/wpg/">WFDB Programming</a></li>
+<li><a href="/physiotools/wag/">WFDB Applications</a></li>
+<li><a href="/physiotools/wug/">WAVE</a></li>
+<li><a href="/physiotools/rcvsim/doc/manual/">RCVSIM</a></li>
+<li><a href="/physiotools/plt/plt/html/">plt</a></li>
+<li><a target="other" class="plain" href="http://www.lulu.com/spotlight/physionet/">Bookstore</a></li>
+</ul></li>
+<li><a href="/mirrors/" class="sf-with-ul">Mirrors<span class="arrow-right" role="presentation"></span></a>
+<ul>
+<li><a href="http://physionet.mit.edu/physiobank/database/qtdb/?C=D;O=A">Cambridge, MA</a></li>
+<li><a href="https://physionet.nlm.nih.gov/physiobank/database/qtdb/?C=D;O=A">Bethesda, MD</a></li>
+<li><a href="http://physionet.incor.usp.br/physiobank/database/qtdb/?C=D;O=A">Sao Paulo, Brazil</a></li>
+<li><a href="http://physionet.ph.biu.ac.il/physiobank/database/qtdb/?C=D;O=A">Ramat-Gan, Israel</a></li>
+<li><a href="http://physionet.cps.unizar.es/physiobank/database/qtdb/?C=D;O=A">Zaragoza, Spain</a></li>
+<li><a href="http://physionet.fri.uni-lj.si/physiobank/database/qtdb/?C=D;O=A">Ljubljana, Slovenia</a></li>
+<li><a href="http://physionet.comp.nus.edu.sg/physiobank/database/qtdb/?C=D;O=A">NUS, Singapore</a></li>
+<li><a href="/mirrors/mirror-howto.shtml">Setting up a mirror</a></li>
+</ul></li>
+<li><a href="/citations.shtml">How to Cite</a></li>
+<li><a href="/guidelines.shtml">Contributing</a></li>
+<li><a href="/copying.shtml">Copying</a></li>
+<li><a href="/privacy.shtml">Privacy</a></li>
+</ul></li>
+</ul>
+
+</li></ul>
+
+	<!--	  </ul>-->
+      </div>
+      
+      <script src="/pn/breadcrumbs.js"></script>
+      
+      <div style="float: right; padding: 0.6em; margin: 0;" id="searchForm">
+	<script>
+document.write("<form action=\"/search-results.shtml\"> " +
+	       "<input type=\"text\" name=\"q\" size=\"25\" /> " +
+	       "<input type=\"submit\" name=\"sa\" value=\"Search\" /> " +
+	       "</form>");
+</script>
+<noscript>
+<form action='https://www.google.com/search'><!-- id='searchForm'>-->
+  <div>
+    <input name='q' type='hidden' value='site:physionet.org' />
+    <input name='q' size='25' type='text' />
+    <input name='sa' type='submit' value='Search' />
+  </div>
+</form>
+</noscript>
+
+      </div>
+    </div>
+
+
+    <div class="pbanner"><!-- pbanner is set to display: none -->
+      from <b>PhysioNet</b>, the research resource for complex physiologic signals
+    </div>
+    <div  style="width: 100%; min-width: 700px; margin: 0; background-color: transparent; padding: 0;">
+      <!-- provides space above h1 header, so it isn't hidden by banner -->
+      <div id="top"><!-- need nested div to link to top lands in right place --></div>      
+    </div>
+
+  </header>
+
+    <main>
+    
+        <h1 style="margin-top: 1.75em; padding-top: .4em;">The QT Database</h1>
+    
+
+    
+        <nav id="tocwrapper" style="padding: 1.5em 0 0 0; float: right;"> <!-- id to position toc added by KP, 6 July 2015 -->
+        </nav>
+    
+
+    
+    <a id="content" ></a>
+    <article id="page"><!-- added by KP, 12 June 2015 -->
+
+
+<div class="notice">
+<p>
+This database is described in</p>
+
+<div class="reference">
+Laguna P, Mark RG, Goldberger AL, Moody
+GB.  <a href="doc/index.shtml">A Database for Evaluation of Algorithms
+for Measurement of QT and Other Waveform Intervals in the ECG.</a>
+<em>Computers in Cardiology</em> 24:673-676 (1997).
+</div> <!-- end reference -->
+<p>
+<b>Please cite this publication when referencing this material, and also
+include the standard citation for PhysioNet:</b></p>
+<div class="reference">
+Goldberger AL, Amaral LAN, Glass L, Hausdorff JM, Ivanov PCh, Mark RG,
+Mietus JE, Moody GB, Peng C-K, Stanley HE.  PhysioBank, PhysioToolkit, and
+PhysioNet: Components of a New Research Resource for Complex Physiologic
+Signals.
+<i>Circulation</i> <b>101</b>(23):e215-e220 [Circulation Electronic Pages;
+<a href="http://circ.ahajournals.org/content/101/23/e215.full"
+target="other">http://circ.ahajournals.org/content/101/23/e215.full</a>];
+2000 (June 13).
+</div> <!-- end reference -->
+</div>
+
+<div class="outer2"><div class="inner2">
+<img src="/physiobank/charts/qtdb.png" alt="[sample waveforms]" style="width: 500px;">
+</div></div>
+
+<p>
+Each of the 105 records consists of a (text) header file, a (binary) signal
+file, and up to 9 (binary) annotation files, identified by suffix:</p>
+<div class="edbtable">
+<table>
+<tr><th style="width: 10%;"><em>Suffix</em></th>
+<th><em>Meaning</em></th></tr>
+<tr><td><tt>.hea</tt></td>
+<td>header file, describing signal file contents and format</td></tr>
+<tr><td><tt>.dat</tt></td>
+<td>signal file</td></tr>
+<tr><td><tt>.atr</tt></td>
+<td>reference beat annotations from original database (not available in
+    all cases)</td></tr>
+<tr><td><tt>.man</tt></td>
+<td>reference beat annotations for selected beats only</td></tr>
+<tr><td><tt>.q1c</tt></td>
+<td>manually determined waveform boundary measurements for selected beats
+    (annotator 1 only -- second pass)</td></tr>
+<tr><td><tt>.q2c</tt></td>
+<td>manually determined waveform boundary measurements for selected beats
+    (annotator 2 only -- second pass;  available for only 11 records)</td></tr>
+<tr><td><tt>.qt1</tt></td>
+<td>manually determined waveform boundary measurements for selected beats
+    (annotator 1 only -- first pass)</td></tr>
+<tr><td><tt>.qt2</tt></td>
+<td>manually determined waveform boundary measurements for selected beats
+    (annotator 2 only -- first pass;  available for only 11 records)</td></tr>
+<tr><td><tt>.pu</tt></td>
+<td> automatically determined waveform boundary measurements for all beats
+    (based on both signals)</td></tr>
+<tr><td><tt>.pu0</tt></td>
+<td>automatically determined waveform boundary measurements for all beats
+    (based on signal 0 only)</td></tr>
+<tr><td><tt>.pu1</tt></td>
+<td>automatically determined waveform boundary measurements for all beats
+    (based on signal 1 only)</td></tr>
+</table>
+</div>
+
+<p>
+For further details about these files, see the first reference above.</p>
+
+<pre><img src="/icons/blank.gif" alt="Icon " width="20" height="22"> <a href="?C=N;O=A">Name</a>                    <a href="?C=M;O=A">Last modified</a>      <a href="?C=S;O=A">Size</a>  <a href="?C=D;O=D">Description</a><hr><img src="/icons/back.gif" alt="[PARENTDIR]" width="20" height="22"> <a href="/physiobank/database/">Parent Directory</a>                             -   
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="MD5SUMS">MD5SUMS</a>                 2005-07-13 01:19   47K  
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="SHA1SUMS">SHA1SUMS</a>                2005-07-13 01:20   55K  
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="SHA256SUMS">SHA256SUMS</a>              2007-09-18 12:39   80K  
+<img src="/icons/folder.gif" alt="[DIR]" width="20" height="22"> <a href="doc/">doc/</a>                    2018-08-13 16:03    -   
+<img src="/icons/folder.gif" alt="[DIR]" width="20" height="22"> <a href="eval/">eval/</a>                   2012-01-05 21:02    -   
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel100.xws">sel100.xws</a>              1999-12-12 17:32   91   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel102.xws">sel102.xws</a>              1999-12-12 17:32   91   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel103.xws">sel103.xws</a>              1999-12-12 17:32   91   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel104.xws">sel104.xws</a>              1999-12-12 17:32   91   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel114.xws">sel114.xws</a>              1999-12-12 17:32   91   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel116.xws">sel116.xws</a>              1999-12-12 17:32   91   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel117.xws">sel117.xws</a>              1999-12-12 17:32   91   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel123.xws">sel123.xws</a>              1999-12-12 17:32   91   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel14046.xws">sel14046.xws</a>            1999-12-12 17:32   93   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel14157.xws">sel14157.xws</a>            1999-12-12 17:32   93   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel14172.xws">sel14172.xws</a>            1999-12-12 17:32   93   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel15814.xws">sel15814.xws</a>            1999-12-12 17:32   93   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel16265.xws">sel16265.xws</a>            1999-12-12 17:32   93   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel16272.xws">sel16272.xws</a>            1999-12-12 17:32   93   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel16273.xws">sel16273.xws</a>            1999-12-12 17:32   93   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel16420.xws">sel16420.xws</a>            1999-12-12 17:32   93   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel16483.xws">sel16483.xws</a>            1999-12-12 17:32   93   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel16539.xws">sel16539.xws</a>            1999-12-12 17:32   93   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel16773.xws">sel16773.xws</a>            1999-12-12 17:32   93   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel16786.xws">sel16786.xws</a>            1999-12-12 17:32   93   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel16795.xws">sel16795.xws</a>            1999-12-12 17:32   93   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel17152.xws">sel17152.xws</a>            1999-12-12 17:32   93   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel17453.xws">sel17453.xws</a>            1999-12-12 17:32   93   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel213.xws">sel213.xws</a>              1999-12-12 17:32   91   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel221.xws">sel221.xws</a>              1999-12-12 17:32   91   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel223.xws">sel223.xws</a>              1999-12-12 17:32   91   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel230.xws">sel230.xws</a>              1999-12-12 17:32   91   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel231.xws">sel231.xws</a>              1999-12-12 17:32   91   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel232.xws">sel232.xws</a>              1999-12-12 17:32   91   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel233.xws">sel233.xws</a>              1999-12-12 17:32   91   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel30.xws">sel30.xws</a>               1999-12-12 17:32   90   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel301.xws">sel301.xws</a>              1999-12-12 17:32   91   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel302.xws">sel302.xws</a>              1999-12-12 17:32   91   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel306.xws">sel306.xws</a>              1999-12-12 17:32   91   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel307.xws">sel307.xws</a>              1999-12-12 17:32   91   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel308.xws">sel308.xws</a>              1999-12-12 17:32   91   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel31.xws">sel31.xws</a>               1999-12-12 17:32   90   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel310.xws">sel310.xws</a>              1999-12-12 17:32   91   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel32.xws">sel32.xws</a>               1999-12-12 17:32   90   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel33.xws">sel33.xws</a>               1999-12-12 17:32   90   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel34.xws">sel34.xws</a>               1999-12-12 17:32   90   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel35.xws">sel35.xws</a>               1999-12-12 17:32   90   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel36.xws">sel36.xws</a>               1999-12-12 17:32   90   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel37.xws">sel37.xws</a>               1999-12-12 17:32   90   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel38.xws">sel38.xws</a>               1999-12-12 17:32   90   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel39.xws">sel39.xws</a>               1999-12-12 17:32   90   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel40.xws">sel40.xws</a>               1999-12-12 17:32   90   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel41.xws">sel41.xws</a>               1999-12-12 17:32   90   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel42.xws">sel42.xws</a>               1999-12-12 17:32   90   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel43.xws">sel43.xws</a>               1999-12-12 17:32   90   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel44.xws">sel44.xws</a>               1999-12-12 17:32   90   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel45.xws">sel45.xws</a>               1999-12-12 17:32   90   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel46.xws">sel46.xws</a>               1999-12-12 17:32   90   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel47.xws">sel47.xws</a>               1999-12-12 17:32   90   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel48.xws">sel48.xws</a>               1999-12-12 17:32   90   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel49.xws">sel49.xws</a>               1999-12-12 17:32   90   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel50.xws">sel50.xws</a>               1999-12-12 17:32   90   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel51.xws">sel51.xws</a>               1999-12-12 17:32   90   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel52.xws">sel52.xws</a>               1999-12-12 17:32   90   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel803.xws">sel803.xws</a>              1999-12-12 17:32   91   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel808.xws">sel808.xws</a>              1999-12-12 17:32   91   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel811.xws">sel811.xws</a>              1999-12-12 17:32   91   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel820.xws">sel820.xws</a>              1999-12-12 17:32   91   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel821.xws">sel821.xws</a>              1999-12-12 17:32   91   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel840.xws">sel840.xws</a>              1999-12-12 17:32   91   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel847.xws">sel847.xws</a>              1999-12-12 17:32   91   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel853.xws">sel853.xws</a>              1999-12-12 17:32   91   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel871.xws">sel871.xws</a>              1999-12-12 17:32   91   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel872.xws">sel872.xws</a>              1999-12-12 17:32   91   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel873.xws">sel873.xws</a>              1999-12-12 17:32   91   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel883.xws">sel883.xws</a>              1999-12-12 17:32   91   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sel891.xws">sel891.xws</a>              1999-12-12 17:32   91   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sele0104.xws">sele0104.xws</a>            1999-12-12 17:32   93   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sele0106.xws">sele0106.xws</a>            1999-12-12 17:32   93   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sele0107.xws">sele0107.xws</a>            1999-12-12 17:32   93   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sele0110.xws">sele0110.xws</a>            1999-12-12 17:32   93   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sele0111.xws">sele0111.xws</a>            1999-12-12 17:32   93   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sele0112.xws">sele0112.xws</a>            1999-12-12 17:32   93   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sele0114.xws">sele0114.xws</a>            1999-12-12 17:32   93   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sele0116.xws">sele0116.xws</a>            1999-12-12 17:32   93   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sele0121.xws">sele0121.xws</a>            1999-12-12 17:32   93   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sele0122.xws">sele0122.xws</a>            1999-12-12 17:32   93   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sele0124.xws">sele0124.xws</a>            1999-12-12 17:32   93   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sele0126.xws">sele0126.xws</a>            1999-12-12 17:32   93   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sele0129.xws">sele0129.xws</a>            1999-12-12 17:32   93   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sele0133.xws">sele0133.xws</a>            1999-12-12 17:32   93   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sele0136.xws">sele0136.xws</a>            1999-12-12 17:32   93   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sele0166.xws">sele0166.xws</a>            1999-12-12 17:32   93   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sele0170.xws">sele0170.xws</a>            1999-12-12 17:32   93   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sele0203.xws">sele0203.xws</a>            1999-12-12 17:32   93   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sele0210.xws">sele0210.xws</a>            1999-12-12 17:32   93   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sele0211.xws">sele0211.xws</a>            1999-12-12 17:32   93   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sele0303.xws">sele0303.xws</a>            1999-12-12 17:32   93   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sele0405.xws">sele0405.xws</a>            1999-12-12 17:32   93   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sele0406.xws">sele0406.xws</a>            1999-12-12 17:32   93   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sele0409.xws">sele0409.xws</a>            1999-12-12 17:32   93   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sele0411.xws">sele0411.xws</a>            1999-12-12 17:32   93   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sele0509.xws">sele0509.xws</a>            1999-12-12 17:32   93   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sele0603.xws">sele0603.xws</a>            1999-12-12 17:32   93   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sele0604.xws">sele0604.xws</a>            1999-12-12 17:32   93   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sele0606.xws">sele0606.xws</a>            1999-12-12 17:32   93   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sele0607.xws">sele0607.xws</a>            1999-12-12 17:32   93   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sele0609.xws">sele0609.xws</a>            1999-12-12 17:32   93   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sele0612.xws">sele0612.xws</a>            1999-12-12 17:32   93   WAVEScript
+<img src="/icons/xws.png" alt="[XWS]" width="20" height="22"> <a href="sele0704.xws">sele0704.xws</a>            1999-12-12 17:32   93   WAVEScript
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel100.man">sel100.man</a>              1998-02-09 04:59   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel100.pu">sel100.pu</a>               1998-02-09 04:59   95K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel100.pu0">sel100.pu0</a>              1998-02-09 04:59   37K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel100.pu1">sel100.pu1</a>              1998-02-09 04:59   36K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel100.q1c">sel100.q1c</a>              1998-02-09 04:59  730   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel100.q2c">sel100.q2c</a>              1998-02-09 04:59  492   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel100.qt1">sel100.qt1</a>              1998-02-09 04:59  604   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel100.qt2">sel100.qt2</a>              1998-02-09 04:59  424   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel102.man">sel102.man</a>              1998-02-09 04:59  348   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel102.pu">sel102.pu</a>               1998-02-09 04:59   68K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel102.pu0">sel102.pu0</a>              1998-02-09 04:59   29K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel102.pu1">sel102.pu1</a>              1998-02-09 04:59   27K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel102.q1c">sel102.q1c</a>              1998-02-09 04:59  2.3K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel102.q2c">sel102.q2c</a>              1998-02-09 04:59   48   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel102.qt1">sel102.qt1</a>              1998-02-09 04:59  1.6K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel102.qt2">sel102.qt2</a>              1998-02-09 04:59  384   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel103.man">sel103.man</a>              1998-02-09 04:59   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel103.pu">sel103.pu</a>               1998-02-09 04:59   72K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel103.pu0">sel103.pu0</a>              1998-02-09 04:59   33K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel103.pu1">sel103.pu1</a>              1998-02-09 04:59   27K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel103.q1c">sel103.q1c</a>              1998-02-09 04:59  1.0K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel103.q2c">sel103.q2c</a>              1998-02-09 04:59  728   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel103.qt1">sel103.qt1</a>              1998-02-09 04:59  716   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel103.qt2">sel103.qt2</a>              1998-02-09 04:59  548   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel104.man">sel104.man</a>              1998-02-09 04:59  302   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel104.pu">sel104.pu</a>               1998-02-09 04:59   70K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel104.pu0">sel104.pu0</a>              1998-02-09 04:59   29K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel104.pu1">sel104.pu1</a>              1998-02-09 04:59   29K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel104.q1c">sel104.q1c</a>              1998-02-09 04:59  1.7K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel104.qt1">sel104.qt1</a>              1998-02-09 04:59  1.3K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel114.man">sel114.man</a>              1998-02-09 04:59  118   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel114.pu">sel114.pu</a>               1998-02-09 04:59   58K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel114.pu0">sel114.pu0</a>              1998-02-09 04:59   27K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel114.pu1">sel114.pu1</a>              1998-02-09 04:59   22K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel114.q1c">sel114.q1c</a>              1998-02-09 04:59  1.3K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel114.q2c">sel114.q2c</a>              1998-02-09 04:59  898   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel114.qt1">sel114.qt1</a>              1998-02-09 04:59  1.0K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel114.qt2">sel114.qt2</a>              1998-02-09 04:59  716   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel116.man">sel116.man</a>              1998-02-09 04:59  168   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel116.pu">sel116.pu</a>               1998-02-09 04:59   91K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel116.pu0">sel116.pu0</a>              1998-02-09 04:59   36K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel116.pu1">sel116.pu1</a>              1998-02-09 04:59   37K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel116.q1c">sel116.q1c</a>              1998-02-09 04:59  1.5K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel116.q2c">sel116.q2c</a>              1998-02-09 04:59  924   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel116.qt1">sel116.qt1</a>              1998-02-09 04:59  1.1K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel116.qt2">sel116.qt2</a>              1998-02-09 04:59  744   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel117.man">sel117.man</a>              1998-02-09 04:59   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel117.pu">sel117.pu</a>               1998-02-09 04:59   60K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel117.pu0">sel117.pu0</a>              1998-02-09 04:59   24K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel117.pu1">sel117.pu1</a>              1998-02-09 04:59   24K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel117.q1c">sel117.q1c</a>              1998-02-09 04:59  814   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel117.q2c">sel117.q2c</a>              1998-02-09 04:59  488   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel117.qt1">sel117.qt1</a>              1998-02-09 04:59  652   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel117.qt2">sel117.qt2</a>              1998-02-09 04:59  428   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel123.man">sel123.man</a>              1998-02-09 04:59   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel123.pu">sel123.pu</a>               1998-02-09 04:59   60K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel123.pu0">sel123.pu0</a>              1998-02-09 04:59   24K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel123.pu1">sel123.pu1</a>              1998-02-09 04:59   24K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel123.q1c">sel123.q1c</a>              1998-02-09 04:59  958   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel123.q2c">sel123.q2c</a>              1998-02-09 04:59  488   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel123.qt1">sel123.qt1</a>              1998-02-09 04:59  724   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel123.qt2">sel123.qt2</a>              1998-02-09 04:59  428   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel14046.man">sel14046.man</a>            1998-02-09 04:59   80   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel14046.pu">sel14046.pu</a>             1998-02-09 04:59   94K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel14046.pu0">sel14046.pu0</a>            1998-02-09 04:59   36K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel14046.pu1">sel14046.pu1</a>            1998-02-09 04:59   39K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel14046.q1c">sel14046.q1c</a>            1998-02-09 04:59  768   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel14046.qt1">sel14046.qt1</a>            1998-02-09 04:59  638   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel14157.man">sel14157.man</a>            1998-02-09 04:59   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel14157.pu">sel14157.pu</a>             1998-02-09 04:59   78K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel14157.pu0">sel14157.pu0</a>            1998-02-09 04:59   33K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel14157.pu1">sel14157.pu1</a>            1998-02-09 04:59   28K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel14157.q1c">sel14157.q1c</a>            1998-02-09 04:59  776   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel14157.qt1">sel14157.qt1</a>            1998-02-09 04:59  628   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel14172.man">sel14172.man</a>            1998-02-09 04:59  188   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel14172.pu">sel14172.pu</a>             1998-02-09 04:59   54K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel14172.pu0">sel14172.pu0</a>            1998-02-09 04:59   21K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel14172.pu1">sel14172.pu1</a>            1998-02-09 04:59   22K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel14172.q1c">sel14172.q1c</a>            1998-02-09 04:59  2.1K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel14172.qt1">sel14172.qt1</a>            1998-02-09 04:59  1.4K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel15814.man">sel15814.man</a>            1998-02-09 04:59   76   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel15814.pu">sel15814.pu</a>             1998-02-09 04:59   76K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel15814.pu0">sel15814.pu0</a>            1998-02-09 04:59   32K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel15814.pu1">sel15814.pu1</a>            1998-02-09 04:59   32K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel15814.q1c">sel15814.q1c</a>            1998-02-09 04:59  726   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel15814.qt1">sel15814.qt1</a>            1998-02-09 04:59  608   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16265.man">sel16265.man</a>            1998-02-09 04:59   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16265.pu">sel16265.pu</a>             1998-02-09 04:59   76K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16265.pu0">sel16265.pu0</a>            1998-02-09 04:59   30K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16265.pu1">sel16265.pu1</a>            1998-02-09 04:59   32K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16265.q1c">sel16265.q1c</a>            1998-02-09 04:59  726   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16265.qt1">sel16265.qt1</a>            1998-02-09 04:59  608   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16272.man">sel16272.man</a>            1998-02-09 04:59   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16272.pu">sel16272.pu</a>             1998-02-09 04:59   61K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16272.pu0">sel16272.pu0</a>            1998-02-09 04:59   27K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16272.pu1">sel16272.pu1</a>            1998-02-09 04:59   20K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16272.q1c">sel16272.q1c</a>            1998-02-09 04:59  738   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16272.qt1">sel16272.qt1</a>            1998-02-09 04:59  612   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16273.man">sel16273.man</a>            1998-02-09 04:59   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16273.pu">sel16273.pu</a>             1998-02-09 04:59   87K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16273.pu0">sel16273.pu0</a>            1998-02-09 04:59   32K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16273.pu1">sel16273.pu1</a>            1998-02-09 04:59   36K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16273.q1c">sel16273.q1c</a>            1998-02-09 04:59  726   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16273.qt1">sel16273.qt1</a>            1998-02-09 04:59  608   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16420.man">sel16420.man</a>            1998-02-09 04:59   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16420.pu">sel16420.pu</a>             1998-02-09 04:59   80K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16420.pu0">sel16420.pu0</a>            1998-02-09 04:59   33K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16420.pu1">sel16420.pu1</a>            1998-02-09 04:59   33K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16420.q1c">sel16420.q1c</a>            1998-02-09 04:59  726   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16420.qt1">sel16420.qt1</a>            1998-02-09 04:59  608   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16483.man">sel16483.man</a>            1998-02-09 04:59   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16483.pu">sel16483.pu</a>             1998-02-09 04:59   79K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16483.pu0">sel16483.pu0</a>            1998-02-09 04:59   34K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16483.pu1">sel16483.pu1</a>            1998-02-09 04:59   34K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16483.q1c">sel16483.q1c</a>            1998-02-09 04:59  730   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16483.qt1">sel16483.qt1</a>            1998-02-09 04:59  612   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16539.man">sel16539.man</a>            1998-02-09 04:59   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16539.pu">sel16539.pu</a>             1998-02-09 04:59   73K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16539.pu0">sel16539.pu0</a>            1998-02-09 04:59   29K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16539.pu1">sel16539.pu1</a>            1998-02-09 04:59   29K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16539.q1c">sel16539.q1c</a>            1998-02-09 04:59  858   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16539.qt1">sel16539.qt1</a>            1998-02-09 04:59  680   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16773.man">sel16773.man</a>            1998-02-09 04:59   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16773.pu">sel16773.pu</a>             1998-02-09 04:59   78K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16773.pu0">sel16773.pu0</a>            1998-02-09 04:59   31K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16773.pu1">sel16773.pu1</a>            1998-02-09 04:59   31K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16773.q1c">sel16773.q1c</a>            1998-02-09 04:59  966   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16773.qt1">sel16773.qt1</a>            1998-02-09 04:59  728   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16786.man">sel16786.man</a>            1998-02-09 04:59   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16786.pu">sel16786.pu</a>             1998-02-09 04:59   75K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16786.pu0">sel16786.pu0</a>            1998-02-09 04:59   29K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16786.pu1">sel16786.pu1</a>            1998-02-09 04:59   30K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16786.q1c">sel16786.q1c</a>            1998-02-09 04:59  846   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16786.qt1">sel16786.qt1</a>            1998-02-09 04:59  668   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16795.man">sel16795.man</a>            1998-02-09 04:59   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16795.pu">sel16795.pu</a>             1998-02-09 04:59   58K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16795.pu0">sel16795.pu0</a>            1998-02-09 04:59   24K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16795.pu1">sel16795.pu1</a>            1998-02-09 04:59   24K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16795.q1c">sel16795.q1c</a>            1998-02-09 04:59  842   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16795.qt1">sel16795.qt1</a>            1998-02-09 04:59  666   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel17152.man">sel17152.man</a>            1998-02-09 04:59   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel17152.pu">sel17152.pu</a>             1998-02-09 04:59  125K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel17152.pu0">sel17152.pu0</a>            1998-02-09 04:59   51K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel17152.pu1">sel17152.pu1</a>            1998-02-09 04:59   47K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel17152.q1c">sel17152.q1c</a>            1998-02-09 04:59  966   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel17152.qt1">sel17152.qt1</a>            1998-02-09 04:59  656   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel17453.man">sel17453.man</a>            1998-02-09 04:59   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel17453.pu">sel17453.pu</a>             1998-02-09 04:59   84K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel17453.pu0">sel17453.pu0</a>            1998-02-09 04:59   33K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel17453.pu1">sel17453.pu1</a>            1998-02-09 04:59   33K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel17453.q1c">sel17453.q1c</a>            1998-02-09 04:59  1.0K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel17453.qt1">sel17453.qt1</a>            1998-02-09 04:59  750   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel213.man">sel213.man</a>              1998-02-09 04:59  318   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel213.pu">sel213.pu</a>               1998-02-09 05:00  129K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel213.pu0">sel213.pu0</a>              1998-02-09 05:00   51K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel213.pu1">sel213.pu1</a>              1998-02-09 05:00   48K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel213.q1c">sel213.q1c</a>              1998-02-09 05:00  2.0K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel213.q2c">sel213.q2c</a>              1998-02-09 05:00  1.4K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel213.qt1">sel213.qt1</a>              1998-02-09 05:00  1.5K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel213.qt2">sel213.qt2</a>              1998-02-09 05:00  1.0K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel221.man">sel221.man</a>              1998-02-09 05:00   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel221.pu">sel221.pu</a>               1998-02-09 05:00   82K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel221.pu0">sel221.pu0</a>              1998-02-09 05:00   31K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel221.pu1">sel221.pu1</a>              1998-02-09 05:00   37K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel221.q1c">sel221.q1c</a>              1998-02-09 05:00  492   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel221.q2c">sel221.q2c</a>              1998-02-09 05:00  504   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel221.qt1">sel221.qt1</a>              1998-02-09 05:00  424   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel221.qt2">sel221.qt2</a>              1998-02-09 05:00  436   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel223.man">sel223.man</a>              1998-02-09 05:00   80   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel223.pu">sel223.pu</a>               1998-02-09 05:00  107K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel223.pu0">sel223.pu0</a>              1998-02-09 05:00   40K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel223.pu1">sel223.pu1</a>              1998-02-09 05:00   39K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel223.q1c">sel223.q1c</a>              1998-02-09 05:00  884   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel223.q2c">sel223.q2c</a>              1998-02-09 05:00  514   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel223.qt1">sel223.qt1</a>              1998-02-09 05:00  696   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel223.qt2">sel223.qt2</a>              1998-02-09 05:00  448   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel230.man">sel230.man</a>              1998-02-09 05:00  140   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel230.pu">sel230.pu</a>               1998-02-09 05:00   84K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel230.pu0">sel230.pu0</a>              1998-02-09 05:00   34K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel230.pu1">sel230.pu1</a>              1998-02-09 05:00   34K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel230.q1c">sel230.q1c</a>              1998-02-09 05:00  1.3K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel230.q2c">sel230.q2c</a>              1998-02-09 05:00  900   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel230.qt1">sel230.qt1</a>              1998-02-09 05:00  1.0K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel230.qt2">sel230.qt2</a>              1998-02-09 05:00  720   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel231.man">sel231.man</a>              1998-02-09 05:00  122   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel231.pu">sel231.pu</a>               1998-02-09 05:00   59K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel231.pu0">sel231.pu0</a>              1998-02-09 05:00   23K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel231.pu1">sel231.pu1</a>              1998-02-09 05:00   23K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel231.q1c">sel231.q1c</a>              1998-02-09 05:00  1.3K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel231.qt1">sel231.qt1</a>              1998-02-09 05:00  1.0K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel232.man">sel232.man</a>              1998-02-09 05:00   92   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel232.pu">sel232.pu</a>               1998-02-09 05:00   72K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel232.pu0">sel232.pu0</a>              1998-02-09 05:00   27K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel232.pu1">sel232.pu1</a>              1998-02-09 05:00   29K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel232.q1c">sel232.q1c</a>              1998-02-09 05:00  632   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel232.qt1">sel232.qt1</a>              1998-02-09 05:00  332   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel233.man">sel233.man</a>              1998-02-09 05:00  100   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel233.pu">sel233.pu</a>               1998-02-09 05:00  112K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel233.pu0">sel233.pu0</a>              1998-02-09 05:00   43K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel233.pu1">sel233.pu1</a>              1998-02-09 05:00   44K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel233.q1c">sel233.q1c</a>              1998-02-09 05:00  738   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel233.qt1">sel233.qt1</a>              1998-02-09 05:00  620   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel30.man">sel30.man</a>               1998-02-09 05:00   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel30.pu">sel30.pu</a>                1998-02-09 05:00   81K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel30.pu0">sel30.pu0</a>               1998-02-09 05:00   32K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel30.pu1">sel30.pu1</a>               1998-02-09 05:00   32K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel30.q1c">sel30.q1c</a>               1998-02-09 05:00  846   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel30.qt1">sel30.qt1</a>               1998-02-09 05:00  668   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel301.man">sel301.man</a>              1998-02-09 05:00   76   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel301.pu">sel301.pu</a>               1998-02-09 05:00  103K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel301.pu0">sel301.pu0</a>              1998-02-09 05:00   42K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel301.pu1">sel301.pu1</a>              1998-02-09 05:00   41K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel301.q1c">sel301.q1c</a>              1998-02-09 05:00  852   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel301.qt1">sel301.qt1</a>              1998-02-09 05:00  674   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel302.man">sel302.man</a>              1998-02-09 05:00   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel302.pu">sel302.pu</a>               1998-02-09 05:00  114K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel302.pu0">sel302.pu0</a>              1998-02-09 05:00   47K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel302.pu1">sel302.pu1</a>              1998-02-09 05:00   47K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel302.q1c">sel302.q1c</a>              1998-02-09 05:00  726   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel302.qt1">sel302.qt1</a>              1998-02-09 05:00  608   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel306.man">sel306.man</a>              1998-02-09 05:00  114   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel306.pu">sel306.pu</a>               1998-02-09 05:00   79K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel306.pu0">sel306.pu0</a>              1998-02-09 05:00   32K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel306.pu1">sel306.pu1</a>              1998-02-09 05:00   31K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel306.q1c">sel306.q1c</a>              1998-02-09 05:00  924   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel306.qt1">sel306.qt1</a>              1998-02-09 05:00  760   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel307.man">sel307.man</a>              1998-02-09 05:00   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel307.pu">sel307.pu</a>               1998-02-09 05:00   65K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel307.pu0">sel307.pu0</a>              1998-02-09 05:00   27K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel307.pu1">sel307.pu1</a>              1998-02-09 05:00   27K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel307.q1c">sel307.q1c</a>              1998-02-09 05:00  830   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel307.qt1">sel307.qt1</a>              1998-02-09 05:00  660   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel308.man">sel308.man</a>              1998-02-09 05:00  146   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel308.pu">sel308.pu</a>               1998-02-09 05:00  100K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel308.pu0">sel308.pu0</a>              1998-02-09 05:00   40K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel308.pu1">sel308.pu1</a>              1998-02-09 05:00   38K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel308.q1c">sel308.q1c</a>              1998-02-09 05:00  1.3K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel308.qt1">sel308.qt1</a>              1998-02-09 05:00  1.0K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel31.man">sel31.man</a>               1998-02-09 05:00   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel31.pu">sel31.pu</a>                1998-02-09 05:00   78K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel31.pu0">sel31.pu0</a>               1998-02-09 05:00   31K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel31.pu1">sel31.pu1</a>               1998-02-09 05:00   33K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel31.q1c">sel31.q1c</a>               1998-02-09 05:00  846   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel31.qt1">sel31.qt1</a>               1998-02-09 05:00  668   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel310.man">sel310.man</a>              1998-02-09 05:00   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel310.pu">sel310.pu</a>               1998-02-09 05:00  136K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel310.pu0">sel310.pu0</a>              1998-02-09 05:00   57K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel310.pu1">sel310.pu1</a>              1998-02-09 05:00   55K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel310.q1c">sel310.q1c</a>              1998-02-09 05:00  728   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel310.qt1">sel310.qt1</a>              1998-02-09 05:00  548   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel32.man">sel32.man</a>               1998-02-09 05:00   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel32.pu">sel32.pu</a>                1998-02-09 05:00   87K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel32.pu0">sel32.pu0</a>               1998-02-09 05:00   37K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel32.pu1">sel32.pu1</a>               1998-02-09 05:00   31K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel32.q1c">sel32.q1c</a>               1998-02-09 05:00  966   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel32.qt1">sel32.qt1</a>               1998-02-09 05:00  668   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel33.man">sel33.man</a>               1998-02-09 05:00   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel33.pu">sel33.pu</a>                1998-02-09 05:00   43K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel33.pu0">sel33.pu0</a>               1998-02-09 05:00   16K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel33.pu1">sel33.pu1</a>               1998-02-09 05:00   16K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel33.q1c">sel33.q1c</a>               1998-02-09 05:00  846   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel33.qt1">sel33.qt1</a>               1998-02-09 05:00  668   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel34.man">sel34.man</a>               1998-02-09 05:00   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel34.pu">sel34.pu</a>                1998-02-09 05:00   58K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel34.pu0">sel34.pu0</a>               1998-02-09 05:00   26K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel34.pu1">sel34.pu1</a>               1998-02-09 05:00   23K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel34.q1c">sel34.q1c</a>               1998-02-09 05:00  846   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel34.qt1">sel34.qt1</a>               1998-02-09 05:00  668   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel35.man">sel35.man</a>               1998-02-09 05:00   80   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel35.pu">sel35.pu</a>                1998-02-09 05:00   58K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel35.pu0">sel35.pu0</a>               1998-02-09 05:00   27K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel35.pu1">sel35.pu1</a>               1998-02-09 05:00   22K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel35.q1c">sel35.q1c</a>               1998-02-09 05:00  206   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel35.qt1">sel35.qt1</a>               1998-02-09 05:00  324   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel36.man">sel36.man</a>               1998-02-09 05:00   76   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel36.pu">sel36.pu</a>                1998-02-09 05:00   61K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel36.pu0">sel36.pu0</a>               1998-02-09 05:00   25K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel36.pu1">sel36.pu1</a>               1998-02-09 05:00   25K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel36.q1c">sel36.q1c</a>               1998-02-09 05:00  1.0K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel36.qt1">sel36.qt1</a>               1998-02-09 05:00  514   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel37.man">sel37.man</a>               1998-02-09 05:00  154   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel37.pu">sel37.pu</a>                1998-02-09 05:00   49K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel37.pu0">sel37.pu0</a>               1998-02-09 05:00   20K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel37.pu1">sel37.pu1</a>               1998-02-09 05:00   20K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel37.q1c">sel37.q1c</a>               1998-02-09 05:00  546   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel37.qt1">sel37.qt1</a>               1998-02-09 05:00  440   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel38.man">sel38.man</a>               1998-02-09 05:00   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel38.pu">sel38.pu</a>                1998-02-09 05:00   93K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel38.pu0">sel38.pu0</a>               1998-02-09 05:00   38K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel38.pu1">sel38.pu1</a>               1998-02-09 05:00   40K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel38.q1c">sel38.q1c</a>               1998-02-09 05:00  850   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel38.qt1">sel38.qt1</a>               1998-02-09 05:00  672   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel39.man">sel39.man</a>               1998-02-09 05:00   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel39.pu">sel39.pu</a>                1998-02-09 05:00  100K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel39.pu0">sel39.pu0</a>               1998-02-09 05:00   38K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel39.pu1">sel39.pu1</a>               1998-02-09 05:00   38K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel39.q1c">sel39.q1c</a>               1998-02-09 05:00  850   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel39.qt1">sel39.qt1</a>               1998-02-09 05:00  672   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel40.man">sel40.man</a>               1998-02-09 05:00   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel40.pu">sel40.pu</a>                1998-02-09 05:00   82K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel40.pu0">sel40.pu0</a>               1998-02-09 05:00   32K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel40.pu1">sel40.pu1</a>               1998-02-09 05:00   33K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel40.q1c">sel40.q1c</a>               1998-02-09 05:00  846   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel40.qt1">sel40.qt1</a>               1998-02-09 05:00  668   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel41.man">sel41.man</a>               1998-02-09 05:00   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel41.pu">sel41.pu</a>                1998-02-09 05:00   96K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel41.pu0">sel41.pu0</a>               1998-02-09 05:00   37K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel41.pu1">sel41.pu1</a>               1998-02-09 05:00   39K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel41.q1c">sel41.q1c</a>               1998-02-09 05:00  858   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel41.qt1">sel41.qt1</a>               1998-02-09 05:00  680   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel42.man">sel42.man</a>               1998-02-09 05:00   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel42.pu">sel42.pu</a>                1998-02-09 05:00   92K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel42.pu0">sel42.pu0</a>               1998-02-09 05:00   34K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel42.pu1">sel42.pu1</a>               1998-02-09 05:00   39K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel42.q1c">sel42.q1c</a>               1998-02-09 05:00  846   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel42.qt1">sel42.qt1</a>               1998-02-09 05:00  668   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel43.man">sel43.man</a>               1998-02-09 05:00   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel43.pu">sel43.pu</a>                1998-02-09 05:00   96K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel43.pu0">sel43.pu0</a>               1998-02-09 05:00   33K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel43.pu1">sel43.pu1</a>               1998-02-09 05:00   44K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel43.q1c">sel43.q1c</a>               1998-02-09 05:00  846   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel43.qt1">sel43.qt1</a>               1998-02-09 05:00  668   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel44.man">sel44.man</a>               1998-02-09 05:00   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel44.pu">sel44.pu</a>                1998-02-09 05:01  100K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel44.pu0">sel44.pu0</a>               1998-02-09 05:01   38K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel44.pu1">sel44.pu1</a>               1998-02-09 05:01   39K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel44.q1c">sel44.q1c</a>               1998-02-09 05:01  910   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel44.qt1">sel44.qt1</a>               1998-02-09 05:01  700   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel45.man">sel45.man</a>               1998-02-09 05:01   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel45.pu">sel45.pu</a>                1998-02-09 05:01   60K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel45.pu0">sel45.pu0</a>               1998-02-09 05:01   26K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel45.pu1">sel45.pu1</a>               1998-02-09 05:01   24K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel45.q1c">sel45.q1c</a>               1998-02-09 05:01  1.1K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel45.qt1">sel45.qt1</a>               1998-02-09 05:01  796   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel46.man">sel46.man</a>               1998-02-09 05:01   88   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel46.pu">sel46.pu</a>                1998-02-09 05:01   56K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel46.pu0">sel46.pu0</a>               1998-02-09 05:01   25K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel46.pu1">sel46.pu1</a>               1998-02-09 05:01   21K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel46.q1c">sel46.q1c</a>               1998-02-09 05:01  854   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel46.qt1">sel46.qt1</a>               1998-02-09 05:01  670   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel47.man">sel47.man</a>               1998-02-09 05:01   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel47.pu">sel47.pu</a>                1998-02-09 05:01   73K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel47.pu0">sel47.pu0</a>               1998-02-09 05:01   29K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel47.pu1">sel47.pu1</a>               1998-02-09 05:01   29K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel47.q1c">sel47.q1c</a>               1998-02-09 05:01  1.2K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel47.qt1">sel47.qt1</a>               1998-02-09 05:01  852   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel48.man">sel48.man</a>               1998-02-09 05:01   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel48.pu">sel48.pu</a>                1998-02-09 05:01  106K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel48.pu0">sel48.pu0</a>               1998-02-09 05:01   45K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel48.pu1">sel48.pu1</a>               1998-02-09 05:01   39K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel48.q1c">sel48.q1c</a>               1998-02-09 05:01  846   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel48.qt1">sel48.qt1</a>               1998-02-09 05:01  668   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel49.man">sel49.man</a>               1998-02-09 05:01   76   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel49.pu">sel49.pu</a>                1998-02-09 05:01   63K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel49.pu0">sel49.pu0</a>               1998-02-09 05:01   26K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel49.pu1">sel49.pu1</a>               1998-02-09 05:01   24K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel49.q1c">sel49.q1c</a>               1998-02-09 05:01  846   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel49.qt1">sel49.qt1</a>               1998-02-09 05:01  668   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel50.man">sel50.man</a>               1998-02-09 05:01   88   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel50.pu">sel50.pu</a>                1998-02-09 05:01   47K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel50.pu0">sel50.pu0</a>               1998-02-09 05:01   19K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel50.pu1">sel50.pu1</a>               1998-02-09 05:01   19K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel50.q1c">sel50.q1c</a>               1998-02-09 05:01  916   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel50.qt1">sel50.qt1</a>               1998-02-09 05:01  652   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel51.man">sel51.man</a>               1998-02-09 05:01   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel51.pu">sel51.pu</a>                1998-02-09 05:01   47K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel51.pu0">sel51.pu0</a>               1998-02-09 05:01   18K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel51.pu1">sel51.pu1</a>               1998-02-09 05:01   20K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel51.q1c">sel51.q1c</a>               1998-02-09 05:01  846   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel51.qt1">sel51.qt1</a>               1998-02-09 05:01  668   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel52.man">sel52.man</a>               1998-02-09 05:01   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel52.pu">sel52.pu</a>                1998-02-09 05:01   97K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel52.pu0">sel52.pu0</a>               1998-02-09 05:01   45K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel52.pu1">sel52.pu1</a>               1998-02-09 05:01   33K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel52.q1c">sel52.q1c</a>               1998-02-09 05:01  846   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel52.qt1">sel52.qt1</a>               1998-02-09 05:01  668   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel803.man">sel803.man</a>              1998-02-09 05:01   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel803.pu">sel803.pu</a>               1998-02-09 05:01   79K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel803.pu0">sel803.pu0</a>              1998-02-09 05:01   31K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel803.pu1">sel803.pu1</a>              1998-02-09 05:01   32K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel803.q1c">sel803.q1c</a>              1998-02-09 05:01  726   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel803.qt1">sel803.qt1</a>              1998-02-09 05:01  608   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel808.man">sel808.man</a>              1998-02-09 05:01   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel808.pu">sel808.pu</a>               1998-02-09 05:01   72K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel808.pu0">sel808.pu0</a>              1998-02-09 05:01   28K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel808.pu1">sel808.pu1</a>              1998-02-09 05:01   28K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel808.q1c">sel808.q1c</a>              1998-02-09 05:01  966   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel808.qt1">sel808.qt1</a>              1998-02-09 05:01  728   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel811.man">sel811.man</a>              1998-02-09 05:01   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel811.pu">sel811.pu</a>               1998-02-09 05:01   56K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel811.pu0">sel811.pu0</a>              1998-02-09 05:01   22K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel811.pu1">sel811.pu1</a>              1998-02-09 05:01   22K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel811.q1c">sel811.q1c</a>              1998-02-09 05:01  730   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel811.qt1">sel811.qt1</a>              1998-02-09 05:01  604   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel820.man">sel820.man</a>              1998-02-09 05:01   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel820.pu">sel820.pu</a>               1998-02-09 05:01   93K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel820.pu0">sel820.pu0</a>              1998-02-09 05:01   36K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel820.pu1">sel820.pu1</a>              1998-02-09 05:01   36K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel820.q1c">sel820.q1c</a>              1998-02-09 05:01  726   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel820.qt1">sel820.qt1</a>              1998-02-09 05:01  608   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel821.man">sel821.man</a>              1998-02-09 05:01   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel821.pu">sel821.pu</a>               1998-02-09 05:01  112K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel821.pu0">sel821.pu0</a>              1998-02-09 05:01   48K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel821.pu1">sel821.pu1</a>              1998-02-09 05:01   44K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel821.q1c">sel821.q1c</a>              1998-02-09 05:01  814   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel821.qt1">sel821.qt1</a>              1998-02-09 05:01  644   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel840.man">sel840.man</a>              1998-02-09 05:01  180   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel840.pu">sel840.pu</a>               1998-02-09 05:01   88K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel840.pu0">sel840.pu0</a>              1998-02-09 05:01   35K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel840.pu1">sel840.pu1</a>              1998-02-09 05:01   36K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel840.q1c">sel840.q1c</a>              1998-02-09 05:01  1.9K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel840.qt1">sel840.qt1</a>              1998-02-09 05:01  1.4K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel847.man">sel847.man</a>              1998-02-09 05:01  102   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel847.pu">sel847.pu</a>               1998-02-09 05:01   64K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel847.pu0">sel847.pu0</a>              1998-02-09 05:01   25K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel847.pu1">sel847.pu1</a>              1998-02-09 05:01   26K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel847.q1c">sel847.q1c</a>              1998-02-09 05:01  822   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel847.qt1">sel847.qt1</a>              1998-02-09 05:01  680   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel853.man">sel853.man</a>              1998-02-09 05:01   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel853.pu">sel853.pu</a>               1998-02-09 05:01   88K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel853.pu0">sel853.pu0</a>              1998-02-09 05:01   34K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel853.pu1">sel853.pu1</a>              1998-02-09 05:01   34K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel853.q1c">sel853.q1c</a>              1998-02-09 05:01  726   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel853.qt1">sel853.qt1</a>              1998-02-09 05:01  608   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel871.man">sel871.man</a>              1998-02-09 05:01  260   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel871.pu">sel871.pu</a>               1998-02-09 05:01   73K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel871.pu0">sel871.pu0</a>              1998-02-09 05:01   29K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel871.pu1">sel871.pu1</a>              1998-02-09 05:01   29K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel871.q1c">sel871.q1c</a>              1998-02-09 05:01  1.9K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel871.qt1">sel871.qt1</a>              1998-02-09 05:01  1.4K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel872.man">sel872.man</a>              1998-02-09 05:01   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel872.pu">sel872.pu</a>               1998-02-09 05:01   75K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel872.pu0">sel872.pu0</a>              1998-02-09 05:01   31K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel872.pu1">sel872.pu1</a>              1998-02-09 05:01   31K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel872.q1c">sel872.q1c</a>              1998-02-09 05:01  726   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel872.qt1">sel872.qt1</a>              1998-02-09 05:01  608   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel873.man">sel873.man</a>              1998-02-09 05:01   96   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel873.pu">sel873.pu</a>               1998-02-09 05:01   61K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel873.pu0">sel873.pu0</a>              1998-02-09 05:01   23K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel873.pu1">sel873.pu1</a>              1998-02-09 05:01   27K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel873.q1c">sel873.q1c</a>              1998-02-09 05:01  822   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel873.qt1">sel873.qt1</a>              1998-02-09 05:01  676   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel883.man">sel883.man</a>              1998-02-09 05:01   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel883.pu">sel883.pu</a>               1998-02-09 05:01   74K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel883.pu0">sel883.pu0</a>              1998-02-09 05:01   28K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel883.pu1">sel883.pu1</a>              1998-02-09 05:01   28K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel883.q1c">sel883.q1c</a>              1998-02-09 05:01  726   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel883.qt1">sel883.qt1</a>              1998-02-09 05:01  608   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel891.man">sel891.man</a>              1998-02-09 05:01  218   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel891.pu">sel891.pu</a>               1998-02-09 05:01   96K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel891.pu0">sel891.pu0</a>              1998-02-09 05:01   38K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel891.pu1">sel891.pu1</a>              1998-02-09 05:01   38K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel891.q1c">sel891.q1c</a>              1998-02-09 05:01  1.8K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel891.qt1">sel891.qt1</a>              1998-02-09 05:01  1.3K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0104.man">sele0104.man</a>            1998-02-09 05:01   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0104.pu">sele0104.pu</a>             1998-02-09 05:01   67K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0104.pu0">sele0104.pu0</a>            1998-02-09 05:01   26K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0104.pu1">sele0104.pu1</a>            1998-02-09 05:01   26K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0104.q1c">sele0104.q1c</a>            1998-02-09 05:01  758   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0104.qt1">sele0104.qt1</a>            1998-02-09 05:01  624   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0106.man">sele0106.man</a>            1998-02-09 05:01   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0106.pu">sele0106.pu</a>             1998-02-09 05:01   70K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0106.pu0">sele0106.pu0</a>            1998-02-09 05:01   28K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0106.pu1">sele0106.pu1</a>            1998-02-09 05:01   28K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0106.q1c">sele0106.q1c</a>            1998-02-09 05:01  1.0K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0106.qt1">sele0106.qt1</a>            1998-02-09 05:01  772   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0107.man">sele0107.man</a>            1998-02-09 05:01   98   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0107.pu">sele0107.pu</a>             1998-02-09 05:01   57K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0107.pu0">sele0107.pu0</a>            1998-02-09 05:01   21K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0107.pu1">sele0107.pu1</a>            1998-02-09 05:01   25K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0107.q1c">sele0107.q1c</a>            1998-02-09 05:01  1.0K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0107.qt1">sele0107.qt1</a>            1998-02-09 05:01  786   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0110.man">sele0110.man</a>            1998-02-09 05:01   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0110.pu">sele0110.pu</a>             1998-02-09 05:01   66K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0110.pu0">sele0110.pu0</a>            1998-02-09 05:01   27K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0110.pu1">sele0110.pu1</a>            1998-02-09 05:01   27K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0110.q1c">sele0110.q1c</a>            1998-02-09 05:01  730   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0110.qt1">sele0110.qt1</a>            1998-02-09 05:01  612   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0111.man">sele0111.man</a>            1998-02-09 05:01   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0111.pu">sele0111.pu</a>             1998-02-09 05:01   74K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0111.pu0">sele0111.pu0</a>            1998-02-09 05:01   29K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0111.pu1">sele0111.pu1</a>            1998-02-09 05:01   28K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0111.q1c">sele0111.q1c</a>            1998-02-09 05:01  1.1K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0111.qt1">sele0111.qt1</a>            1998-02-09 05:01  848   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0112.man">sele0112.man</a>            1998-02-09 05:01  118   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0112.pu">sele0112.pu</a>             1998-02-09 05:01   51K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0112.pu0">sele0112.pu0</a>            1998-02-09 05:01   21K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0112.pu1">sele0112.pu1</a>            1998-02-09 05:01   20K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0112.q1c">sele0112.q1c</a>            1998-02-09 05:01  1.8K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0112.qt1">sele0112.qt1</a>            1998-02-09 05:01  1.3K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0114.man">sele0114.man</a>            1998-02-09 05:01   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0114.pu">sele0114.pu</a>             1998-02-09 05:01   53K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0114.pu0">sele0114.pu0</a>            1998-02-09 05:01   20K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0114.pu1">sele0114.pu1</a>            1998-02-09 05:01   22K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0114.q1c">sele0114.q1c</a>            1998-02-09 05:02  1.1K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0114.qt1">sele0114.qt1</a>            1998-02-09 05:02  822   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0116.man">sele0116.man</a>            1998-02-09 05:02   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0116.pu">sele0116.pu</a>             1998-02-09 05:02   49K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0116.pu0">sele0116.pu0</a>            1998-02-09 05:02   18K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0116.pu1">sele0116.pu1</a>            1998-02-09 05:02   22K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0116.q1c">sele0116.q1c</a>            1998-02-09 05:02  846   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0116.qt1">sele0116.qt1</a>            1998-02-09 05:02  668   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0121.man">sele0121.man</a>            1998-02-09 05:02   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0121.pu">sele0121.pu</a>             1998-02-09 05:02  113K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0121.pu0">sele0121.pu0</a>            1998-02-09 05:02   45K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0121.pu1">sele0121.pu1</a>            1998-02-09 05:02   45K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0121.q1c">sele0121.q1c</a>            1998-02-09 05:02  726   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0121.qt1">sele0121.qt1</a>            1998-02-09 05:02  608   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0122.man">sele0122.man</a>            1998-02-09 05:02   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0122.pu">sele0122.pu</a>             1998-02-09 05:02  116K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0122.pu0">sele0122.pu0</a>            1998-02-09 05:02   44K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0122.pu1">sele0122.pu1</a>            1998-02-09 05:02   44K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0122.q1c">sele0122.q1c</a>            1998-02-09 05:02  966   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0122.qt1">sele0122.qt1</a>            1998-02-09 05:02  732   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0124.man">sele0124.man</a>            1998-02-09 05:02  156   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0124.pu">sele0124.pu</a>             1998-02-09 05:02   82K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0124.pu0">sele0124.pu0</a>            1998-02-09 05:02   32K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0124.pu1">sele0124.pu1</a>            1998-02-09 05:02   35K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0124.q1c">sele0124.q1c</a>            1998-02-09 05:02  1.5K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0124.qt1">sele0124.qt1</a>            1998-02-09 05:02  1.1K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0126.man">sele0126.man</a>            1998-02-09 05:02   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0126.pu">sele0126.pu</a>             1998-02-09 05:02   81K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0126.pu0">sele0126.pu0</a>            1998-02-09 05:02   31K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0126.pu1">sele0126.pu1</a>            1998-02-09 05:02   30K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0126.q1c">sele0126.q1c</a>            1998-02-09 05:02  970   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0126.qt1">sele0126.qt1</a>            1998-02-09 05:02  732   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0129.man">sele0129.man</a>            1998-02-09 05:02   76   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0129.pu">sele0129.pu</a>             1998-02-09 05:02   52K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0129.pu0">sele0129.pu0</a>            1998-02-09 05:02   21K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0129.pu1">sele0129.pu1</a>            1998-02-09 05:02   20K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0129.q1c">sele0129.q1c</a>            1998-02-09 05:02  732   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0129.qt1">sele0129.qt1</a>            1998-02-09 05:02  614   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0133.man">sele0133.man</a>            1998-02-09 05:02   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0133.pu">sele0133.pu</a>             1998-02-09 05:02   67K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0133.pu0">sele0133.pu0</a>            1998-02-09 05:02   26K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0133.pu1">sele0133.pu1</a>            1998-02-09 05:02   26K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0133.q1c">sele0133.q1c</a>            1998-02-09 05:02  726   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0133.qt1">sele0133.qt1</a>            1998-02-09 05:02  608   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0136.man">sele0136.man</a>            1998-02-09 05:02   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0136.pu">sele0136.pu</a>             1998-02-09 05:02   62K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0136.pu0">sele0136.pu0</a>            1998-02-09 05:02   24K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0136.pu1">sele0136.pu1</a>            1998-02-09 05:02   25K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0136.q1c">sele0136.q1c</a>            1998-02-09 05:02  1.0K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0136.qt1">sele0136.qt1</a>            1998-02-09 05:02  734   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0166.man">sele0166.man</a>            1998-02-09 05:02  110   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0166.pu">sele0166.pu</a>             1998-02-09 05:02   66K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0166.pu0">sele0166.pu0</a>            1998-02-09 05:02   26K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0166.pu1">sele0166.pu1</a>            1998-02-09 05:02   25K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0166.q1c">sele0166.q1c</a>            1998-02-09 05:02  1.0K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0166.qt1">sele0166.qt1</a>            1998-02-09 05:02  818   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0170.man">sele0170.man</a>            1998-02-09 05:02   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0170.pu">sele0170.pu</a>             1998-02-09 05:02   75K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0170.pu0">sele0170.pu0</a>            1998-02-09 05:02   28K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0170.pu1">sele0170.pu1</a>            1998-02-09 05:02   29K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0170.q1c">sele0170.q1c</a>            1998-02-09 05:02  726   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0170.qt1">sele0170.qt1</a>            1998-02-09 05:02  608   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0203.man">sele0203.man</a>            1998-02-09 05:02   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0203.pu">sele0203.pu</a>             1998-02-09 05:02   96K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0203.pu0">sele0203.pu0</a>            1998-02-09 05:02   41K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0203.pu1">sele0203.pu1</a>            1998-02-09 05:02   34K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0203.q1c">sele0203.q1c</a>            1998-02-09 05:02  730   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0203.qt1">sele0203.qt1</a>            1998-02-09 05:02  612   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0210.man">sele0210.man</a>            1998-02-09 05:02   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0210.pu">sele0210.pu</a>             1998-02-09 05:02   80K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0210.pu0">sele0210.pu0</a>            1998-02-09 05:02   33K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0210.pu1">sele0210.pu1</a>            1998-02-09 05:02   33K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0210.q1c">sele0210.q1c</a>            1998-02-09 05:02  846   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0210.qt1">sele0210.qt1</a>            1998-02-09 05:02  668   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0211.man">sele0211.man</a>            1998-02-09 05:02   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0211.pu">sele0211.pu</a>             1998-02-09 05:02  116K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0211.pu0">sele0211.pu0</a>            1998-02-09 05:02   49K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0211.pu1">sele0211.pu1</a>            1998-02-09 05:02   49K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0211.q1c">sele0211.q1c</a>            1998-02-09 05:02  846   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0211.qt1">sele0211.qt1</a>            1998-02-09 05:02  668   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0303.man">sele0303.man</a>            1998-02-09 05:02   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0303.pu">sele0303.pu</a>             1998-02-09 05:02   84K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0303.pu0">sele0303.pu0</a>            1998-02-09 05:02   33K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0303.pu1">sele0303.pu1</a>            1998-02-09 05:02   33K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0303.q1c">sele0303.q1c</a>            1998-02-09 05:02  846   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0303.qt1">sele0303.qt1</a>            1998-02-09 05:02  668   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0405.man">sele0405.man</a>            1998-02-09 05:02   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0405.pu">sele0405.pu</a>             1998-02-09 05:02   96K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0405.pu0">sele0405.pu0</a>            1998-02-09 05:02   38K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0405.pu1">sele0405.pu1</a>            1998-02-09 05:02   38K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0405.q1c">sele0405.q1c</a>            1998-02-09 05:02  730   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0405.qt1">sele0405.qt1</a>            1998-02-09 05:02  612   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0406.man">sele0406.man</a>            1998-02-09 05:02   80   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0406.pu">sele0406.pu</a>             1998-02-09 05:02   68K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0406.pu0">sele0406.pu0</a>            1998-02-09 05:02   30K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0406.pu1">sele0406.pu1</a>            1998-02-09 05:02   28K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0406.q1c">sele0406.q1c</a>            1998-02-09 05:02  832   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0406.qt1">sele0406.qt1</a>            1998-02-09 05:02  674   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0409.man">sele0409.man</a>            1998-02-09 05:02   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0409.pu">sele0409.pu</a>             1998-02-09 05:02  121K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0409.pu0">sele0409.pu0</a>            1998-02-09 05:02   48K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0409.pu1">sele0409.pu1</a>            1998-02-09 05:02   47K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0409.q1c">sele0409.q1c</a>            1998-02-09 05:02  846   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0409.qt1">sele0409.qt1</a>            1998-02-09 05:02  668   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0411.man">sele0411.man</a>            1998-02-09 05:02   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0411.pu">sele0411.pu</a>             1998-02-09 05:02   92K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0411.pu0">sele0411.pu0</a>            1998-02-09 05:02   37K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0411.pu1">sele0411.pu1</a>            1998-02-09 05:02   37K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0411.q1c">sele0411.q1c</a>            1998-02-09 05:02  726   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0411.qt1">sele0411.qt1</a>            1998-02-09 05:02  608   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0509.man">sele0509.man</a>            1998-02-09 05:02   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0509.pu">sele0509.pu</a>             1998-02-09 05:02   67K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0509.pu0">sele0509.pu0</a>            1998-02-09 05:02   32K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0509.pu1">sele0509.pu1</a>            1998-02-09 05:02   26K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0509.q1c">sele0509.q1c</a>            1998-02-09 05:02  726   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0509.qt1">sele0509.qt1</a>            1998-02-09 05:02  608   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0603.man">sele0603.man</a>            1998-02-09 05:02   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0603.pu">sele0603.pu</a>             1998-02-09 05:02   72K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0603.pu0">sele0603.pu0</a>            1998-02-09 05:02   29K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0603.pu1">sele0603.pu1</a>            1998-02-09 05:02   27K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0603.q1c">sele0603.q1c</a>            1998-02-09 05:02  1.0K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0603.qt1">sele0603.qt1</a>            1998-02-09 05:02  772   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0604.man">sele0604.man</a>            1998-02-09 05:02   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0604.pu">sele0604.pu</a>             1998-02-09 05:02   83K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0604.pu0">sele0604.pu0</a>            1998-02-09 05:02   32K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0604.pu1">sele0604.pu1</a>            1998-02-09 05:02   32K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0604.q1c">sele0604.q1c</a>            1998-02-09 05:02  966   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0604.qt1">sele0604.qt1</a>            1998-02-09 05:02  728   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0606.man">sele0606.man</a>            1998-02-09 05:02   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0606.pu">sele0606.pu</a>             1998-02-09 05:02  120K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0606.pu0">sele0606.pu0</a>            1998-02-09 05:02   45K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0606.pu1">sele0606.pu1</a>            1998-02-09 05:02   45K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0606.q1c">sele0606.q1c</a>            1998-02-09 05:02  730   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0606.qt1">sele0606.qt1</a>            1998-02-09 05:02  612   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0607.man">sele0607.man</a>            1998-02-09 05:02   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0607.pu">sele0607.pu</a>             1998-02-09 05:02  103K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0607.pu0">sele0607.pu0</a>            1998-02-09 05:02   39K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0607.pu1">sele0607.pu1</a>            1998-02-09 05:02   39K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0607.q1c">sele0607.q1c</a>            1998-02-09 05:02  766   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0607.qt1">sele0607.qt1</a>            1998-02-09 05:02  636   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0609.man">sele0609.man</a>            1998-02-09 05:02   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0609.pu">sele0609.pu</a>             1998-02-09 05:02   94K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0609.pu0">sele0609.pu0</a>            1998-02-09 05:02   35K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0609.pu1">sele0609.pu1</a>            1998-02-09 05:02   35K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0609.q1c">sele0609.q1c</a>            1998-02-09 05:02  846   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0609.qt1">sele0609.qt1</a>            1998-02-09 05:02  668   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0612.man">sele0612.man</a>            1998-02-09 05:02   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0612.pu">sele0612.pu</a>             1998-02-09 05:02   56K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0612.pu0">sele0612.pu0</a>            1998-02-09 05:02   23K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0612.pu1">sele0612.pu1</a>            1998-02-09 05:02   23K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0612.q1c">sele0612.q1c</a>            1998-02-09 05:02  850   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0612.qt1">sele0612.qt1</a>            1998-02-09 05:02  672   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0704.man">sele0704.man</a>            1998-02-09 05:02   70   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0704.pu">sele0704.pu</a>             1998-02-09 05:03   96K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0704.pu0">sele0704.pu0</a>            1998-02-09 05:03   36K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0704.pu1">sele0704.pu1</a>            1998-02-09 05:03   36K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0704.q1c">sele0704.q1c</a>            1998-02-09 05:03  1.1K  boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0704.qt1">sele0704.qt1</a>            1998-02-09 05:03  812   boundary annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel100.dat">sel100.dat</a>              1998-02-09 07:30  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel102.dat">sel102.dat</a>              1998-02-09 07:30  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel103.dat">sel103.dat</a>              1998-02-09 07:30  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel104.dat">sel104.dat</a>              1998-02-09 07:31  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel114.dat">sel114.dat</a>              1998-02-09 07:31  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel116.dat">sel116.dat</a>              1998-02-09 07:31  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel117.dat">sel117.dat</a>              1998-02-09 07:31  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel123.dat">sel123.dat</a>              1998-02-09 07:31  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel14046.dat">sel14046.dat</a>            1998-02-09 07:31  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel14157.dat">sel14157.dat</a>            1998-02-09 07:31  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel14172.dat">sel14172.dat</a>            1998-02-09 07:31  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel15814.dat">sel15814.dat</a>            1998-02-09 07:31  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16265.dat">sel16265.dat</a>            1998-02-09 07:31  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16272.dat">sel16272.dat</a>            1998-02-09 07:31  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16273.dat">sel16273.dat</a>            1998-02-09 07:31  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16420.dat">sel16420.dat</a>            1998-02-09 07:31  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16483.dat">sel16483.dat</a>            1998-02-09 07:31  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16539.dat">sel16539.dat</a>            1998-02-09 07:31  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16773.dat">sel16773.dat</a>            1998-02-09 07:32  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16786.dat">sel16786.dat</a>            1998-02-09 07:32  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16795.dat">sel16795.dat</a>            1998-02-09 07:32  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel17152.dat">sel17152.dat</a>            1998-02-09 07:32  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel17453.dat">sel17453.dat</a>            1998-02-09 07:32  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel213.dat">sel213.dat</a>              1998-02-09 07:33  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel221.dat">sel221.dat</a>              1998-02-09 07:33  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel223.dat">sel223.dat</a>              1998-02-09 07:33  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel230.dat">sel230.dat</a>              1998-02-09 07:34  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel231.dat">sel231.dat</a>              1998-02-09 07:34  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel232.dat">sel232.dat</a>              1998-02-09 07:34  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel233.dat">sel233.dat</a>              1998-02-09 07:34  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel30.dat">sel30.dat</a>               1998-02-09 07:34  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel301.dat">sel301.dat</a>              1998-02-09 07:34  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel302.dat">sel302.dat</a>              1998-02-09 07:34  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel306.dat">sel306.dat</a>              1998-02-09 07:34  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel307.dat">sel307.dat</a>              1998-02-09 07:34  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel308.dat">sel308.dat</a>              1998-02-09 07:34  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel31.dat">sel31.dat</a>               1998-02-09 07:34  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel310.dat">sel310.dat</a>              1998-02-09 07:34  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel32.dat">sel32.dat</a>               1998-02-09 07:35  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel33.dat">sel33.dat</a>               1998-02-09 07:35  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel34.dat">sel34.dat</a>               1998-02-09 07:35  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel35.dat">sel35.dat</a>               1998-02-09 07:35  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel36.dat">sel36.dat</a>               1998-02-09 07:35  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel37.dat">sel37.dat</a>               1998-02-09 07:35  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel38.dat">sel38.dat</a>               1998-02-09 07:35  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel39.dat">sel39.dat</a>               1998-02-09 07:35  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel40.dat">sel40.dat</a>               1998-02-09 07:35  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel41.dat">sel41.dat</a>               1998-02-09 07:35  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel42.dat">sel42.dat</a>               1998-02-09 07:35  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel43.dat">sel43.dat</a>               1998-02-09 07:35  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel44.dat">sel44.dat</a>               1998-02-09 07:35  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel45.dat">sel45.dat</a>               1998-02-09 07:35  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel46.dat">sel46.dat</a>               1998-02-09 07:35  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel47.dat">sel47.dat</a>               1998-02-09 07:35  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel48.dat">sel48.dat</a>               1998-02-09 07:35  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel49.dat">sel49.dat</a>               1998-02-09 07:36  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel50.dat">sel50.dat</a>               1998-02-09 07:36  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel51.dat">sel51.dat</a>               1998-02-09 07:36  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel52.dat">sel52.dat</a>               1998-02-09 07:36  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel803.dat">sel803.dat</a>              1998-02-09 07:36  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel808.dat">sel808.dat</a>              1998-02-09 07:36  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel811.dat">sel811.dat</a>              1998-02-09 07:36  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel820.dat">sel820.dat</a>              1998-02-09 07:36  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel821.dat">sel821.dat</a>              1998-02-09 07:36  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel840.dat">sel840.dat</a>              1998-02-09 07:36  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel847.dat">sel847.dat</a>              1998-02-09 07:36  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel853.dat">sel853.dat</a>              1998-02-09 07:36  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel871.dat">sel871.dat</a>              1998-02-09 07:36  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel872.dat">sel872.dat</a>              1998-02-09 07:36  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel873.dat">sel873.dat</a>              1998-02-09 07:36  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel883.dat">sel883.dat</a>              1998-02-09 07:36  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel891.dat">sel891.dat</a>              1998-02-09 07:36  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0104.dat">sele0104.dat</a>            1998-02-09 07:36  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0106.dat">sele0106.dat</a>            1998-02-09 07:36  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0107.dat">sele0107.dat</a>            1998-02-09 07:37  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0110.dat">sele0110.dat</a>            1998-02-09 07:37  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0111.dat">sele0111.dat</a>            1998-02-09 07:37  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0112.dat">sele0112.dat</a>            1998-02-09 07:37  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0114.dat">sele0114.dat</a>            1998-02-09 07:37  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0116.dat">sele0116.dat</a>            1998-02-09 07:37  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0121.dat">sele0121.dat</a>            1998-02-09 07:37  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0122.dat">sele0122.dat</a>            1998-02-09 07:37  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0124.dat">sele0124.dat</a>            1998-02-09 07:37  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0126.dat">sele0126.dat</a>            1998-02-09 07:37  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0129.dat">sele0129.dat</a>            1998-02-09 07:37  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0133.dat">sele0133.dat</a>            1998-02-09 07:37  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0136.dat">sele0136.dat</a>            1998-02-09 07:37  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0166.dat">sele0166.dat</a>            1998-02-09 07:37  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0170.dat">sele0170.dat</a>            1998-02-09 07:37  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0203.dat">sele0203.dat</a>            1998-02-09 07:37  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0210.dat">sele0210.dat</a>            1998-02-09 07:37  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0211.dat">sele0211.dat</a>            1998-02-09 07:37  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0303.dat">sele0303.dat</a>            1998-02-09 07:37  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0405.dat">sele0405.dat</a>            1998-02-09 07:38  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0406.dat">sele0406.dat</a>            1998-02-09 07:38  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0409.dat">sele0409.dat</a>            1998-02-09 07:38  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0411.dat">sele0411.dat</a>            1998-02-09 07:38  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0509.dat">sele0509.dat</a>            1998-02-09 07:38  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0603.dat">sele0603.dat</a>            1998-02-09 07:38  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0604.dat">sele0604.dat</a>            1998-02-09 07:38  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0606.dat">sele0606.dat</a>            1998-02-09 07:38  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0607.dat">sele0607.dat</a>            1998-02-09 07:38  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0609.dat">sele0609.dat</a>            1998-02-09 07:38  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0612.dat">sele0612.dat</a>            1998-02-09 07:38  659K  digitized signal(s)
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0704.dat">sele0704.dat</a>            1998-02-09 07:38  659K  digitized signal(s)
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel100.hea">sel100.hea</a>              1998-02-09 04:59  220   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel102.hea">sel102.hea</a>              1998-02-09 04:59  281   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel103.hea">sel103.hea</a>              1998-02-09 04:59  212   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel104.hea">sel104.hea</a>              1998-02-09 04:59  458   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel114.hea">sel114.hea</a>              1998-02-09 04:59  211   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel116.hea">sel116.hea</a>              1998-02-09 04:59  218   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel117.hea">sel117.hea</a>              1998-02-09 04:59  195   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel123.hea">sel123.hea</a>              1998-02-09 04:59  252   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel14046.hea">sel14046.hea</a>            2012-02-14 18:38  175   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel14046.hea-">sel14046.hea-</a>           1998-02-09 04:59  211   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel14157.hea">sel14157.hea</a>            2012-02-14 18:38  173   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel14157.hea-">sel14157.hea-</a>           1998-02-09 04:59  209   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel14172.hea">sel14172.hea</a>            2012-02-14 18:38  172   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel14172.hea-">sel14172.hea-</a>           1998-02-09 04:59  208   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel15814.hea">sel15814.hea</a>            2012-02-14 18:38  170   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel15814.hea-">sel15814.hea-</a>           1998-02-09 04:59  206   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel16265.hea">sel16265.hea</a>            2012-02-14 18:38  180   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel16265.hea-">sel16265.hea-</a>           1998-02-09 04:59  214   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel16272.hea">sel16272.hea</a>            2012-02-14 18:38  178   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel16272.hea-">sel16272.hea-</a>           1998-02-09 04:59  212   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel16273.hea">sel16273.hea</a>            2012-02-14 18:37  179   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel16273.hea-">sel16273.hea-</a>           1998-02-09 04:59  215   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel16420.hea">sel16420.hea</a>            2012-02-14 18:37  178   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel16420.hea-">sel16420.hea-</a>           1998-02-09 04:59  214   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel16483.hea">sel16483.hea</a>            2012-02-14 18:37  179   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel16483.hea-">sel16483.hea-</a>           1998-02-09 04:59  215   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel16539.hea">sel16539.hea</a>            2012-02-14 18:37  176   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel16539.hea-">sel16539.hea-</a>           1998-02-09 04:59  212   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel16773.hea">sel16773.hea</a>            2012-02-14 18:37  178   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel16773.hea-">sel16773.hea-</a>           1998-02-09 04:59  214   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel16786.hea">sel16786.hea</a>            2012-02-14 18:37  181   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel16786.hea-">sel16786.hea-</a>           1998-02-09 04:59  217   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel16795.hea">sel16795.hea</a>            2012-02-14 18:37  179   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel16795.hea-">sel16795.hea-</a>           1998-02-09 04:59  215   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel17152.hea">sel17152.hea</a>            2012-02-14 18:37  179   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel17152.hea-">sel17152.hea-</a>           1998-02-09 04:59  213   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel17453.hea">sel17453.hea</a>            2012-02-14 18:37  181   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel17453.hea-">sel17453.hea-</a>           1998-02-09 04:59  217   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel213.hea">sel213.hea</a>              1998-02-09 04:59  386   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel221.hea">sel221.hea</a>              1998-02-09 05:00  283   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel223.hea">sel223.hea</a>              1998-02-09 05:00  324   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel230.hea">sel230.hea</a>              1998-02-09 05:00  199   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel231.hea">sel231.hea</a>              1998-02-09 05:00  397   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel232.hea">sel232.hea</a>              1998-02-09 05:00  453   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel233.hea">sel233.hea</a>              1998-02-09 05:00  216   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel30.hea">sel30.hea</a>               2012-02-14 18:36  403   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel30.hea-">sel30.hea-</a>              1998-02-09 05:00  433   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel301.hea">sel301.hea</a>              2012-02-14 18:36  169   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel301.hea-">sel301.hea-</a>             1998-02-09 05:00  201   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel302.hea">sel302.hea</a>              2012-02-14 18:36  167   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel302.hea-">sel302.hea-</a>             1998-02-09 05:00  199   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel306.hea">sel306.hea</a>              2012-02-14 18:36  161   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel306.hea-">sel306.hea-</a>             1998-02-09 05:00  193   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel307.hea">sel307.hea</a>              2012-02-14 18:36  162   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel307.hea-">sel307.hea-</a>             1998-02-09 05:00  194   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel308.hea">sel308.hea</a>              2012-02-14 18:36  170   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel308.hea-">sel308.hea-</a>             1998-02-09 05:00  202   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel31.hea">sel31.hea</a>               2012-02-14 18:35  405   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel31.hea-">sel31.hea-</a>              1998-02-09 05:00  435   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel310.hea">sel310.hea</a>              2012-02-14 18:36  167   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel310.hea-">sel310.hea-</a>             1998-02-09 05:00  199   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel32.hea">sel32.hea</a>               2012-02-14 18:35  395   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel32.hea-">sel32.hea-</a>              1998-02-09 05:00  425   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel33.hea">sel33.hea</a>               2012-02-14 18:35  400   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel33.hea-">sel33.hea-</a>              1998-02-09 05:00  430   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel34.hea">sel34.hea</a>               2012-02-14 18:35  392   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel34.hea-">sel34.hea-</a>              1998-02-09 05:00  422   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel35.hea">sel35.hea</a>               2012-02-14 18:35  389   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel35.hea-">sel35.hea-</a>              1998-02-09 05:00  419   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel36.hea">sel36.hea</a>               2012-02-14 18:35  393   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel36.hea-">sel36.hea-</a>              1998-02-09 05:00  423   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel37.hea">sel37.hea</a>               2012-02-14 18:35  395   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel37.hea-">sel37.hea-</a>              1998-02-09 05:00  425   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel38.hea">sel38.hea</a>               2012-02-14 18:34  394   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel38.hea-">sel38.hea-</a>              1998-02-09 05:00  424   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel39.hea">sel39.hea</a>               2012-02-14 18:34  385   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel39.hea-">sel39.hea-</a>              1998-02-09 05:00  415   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel40.hea">sel40.hea</a>               2012-02-14 18:34  386   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel40.hea-">sel40.hea-</a>              1998-02-09 05:00  416   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel41.hea">sel41.hea</a>               2012-02-14 18:34  382   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel41.hea-">sel41.hea-</a>              1998-02-09 05:00  412   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel42.hea">sel42.hea</a>               2012-02-14 18:34  397   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel42.hea-">sel42.hea-</a>              1998-02-09 05:00  427   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel43.hea">sel43.hea</a>               2012-02-14 18:34  393   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel43.hea-">sel43.hea-</a>              1998-02-09 05:00  423   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel44.hea">sel44.hea</a>               2012-02-14 18:34  386   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel44.hea-">sel44.hea-</a>              1998-02-09 05:00  416   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel45.hea">sel45.hea</a>               2012-02-14 18:34  395   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel45.hea-">sel45.hea-</a>              1998-02-09 05:01  425   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel46.hea">sel46.hea</a>               2012-02-14 18:34  394   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel46.hea-">sel46.hea-</a>              1998-02-09 05:01  424   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel47.hea">sel47.hea</a>               2012-02-14 18:34  396   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel47.hea-">sel47.hea-</a>              1998-02-09 05:01  426   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel48.hea">sel48.hea</a>               2012-02-14 18:33  391   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel48.hea-">sel48.hea-</a>              1998-02-09 05:01  421   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel49.hea">sel49.hea</a>               2012-02-14 18:33  392   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel49.hea-">sel49.hea-</a>              1998-02-09 05:01  422   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel50.hea">sel50.hea</a>               2012-02-14 18:33  393   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel50.hea-">sel50.hea-</a>              1998-02-09 05:01  423   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel51.hea">sel51.hea</a>               2012-02-14 18:33  347   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel51.hea-">sel51.hea-</a>              1998-02-09 05:01  377   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel52.hea">sel52.hea</a>               2012-02-14 18:33  392   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel52.hea-">sel52.hea-</a>              1998-02-09 05:01  422   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel803.hea">sel803.hea</a>              2012-02-14 18:33  161   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel803.hea-">sel803.hea-</a>             1998-02-09 05:01  193   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel808.hea">sel808.hea</a>              2012-02-14 18:33  163   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel808.hea-">sel808.hea-</a>             1998-02-09 05:01  195   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel811.hea">sel811.hea</a>              2012-02-14 18:33  167   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel811.hea-">sel811.hea-</a>             1998-02-09 05:01  199   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel820.hea">sel820.hea</a>              2012-02-14 18:32  155   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel820.hea-">sel820.hea-</a>             1998-02-09 05:01  187   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel821.hea">sel821.hea</a>              2012-02-14 18:32  159   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel821.hea-">sel821.hea-</a>             1998-02-09 05:01  191   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel840.hea">sel840.hea</a>              2012-02-14 18:32  166   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel840.hea-">sel840.hea-</a>             1998-02-09 05:01  198   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel847.hea">sel847.hea</a>              2012-02-14 18:32  164   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel847.hea-">sel847.hea-</a>             1998-02-09 05:01  196   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel853.hea">sel853.hea</a>              2012-02-14 18:32  162   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel853.hea-">sel853.hea-</a>             1998-02-09 05:01  194   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel871.hea">sel871.hea</a>              2012-02-14 18:32  167   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel871.hea-">sel871.hea-</a>             1998-02-09 05:01  199   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel872.hea">sel872.hea</a>              2012-02-14 18:32  160   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel872.hea-">sel872.hea-</a>             1998-02-09 05:01  192   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel873.hea">sel873.hea</a>              2012-02-14 18:32  160   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel873.hea-">sel873.hea-</a>             1998-02-09 05:01  192   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel883.hea">sel883.hea</a>              2012-02-14 18:32  168   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel883.hea-">sel883.hea-</a>             1998-02-09 05:01  200   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sel891.hea">sel891.hea</a>              2012-02-14 18:32  164   header file
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="sel891.hea-">sel891.hea-</a>             1998-02-09 05:01  196   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sele0104.hea">sele0104.hea</a>            1998-02-09 05:01  321   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sele0106.hea">sele0106.hea</a>            1998-02-09 05:01  276   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sele0107.hea">sele0107.hea</a>            1998-02-09 05:01  303   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sele0110.hea">sele0110.hea</a>            1998-02-09 05:01  302   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sele0111.hea">sele0111.hea</a>            1998-02-09 05:01  304   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sele0112.hea">sele0112.hea</a>            1998-02-09 05:01  319   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sele0114.hea">sele0114.hea</a>            1998-02-09 05:01  320   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sele0116.hea">sele0116.hea</a>            1998-02-09 05:02  297   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sele0121.hea">sele0121.hea</a>            1998-02-09 05:02  297   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sele0122.hea">sele0122.hea</a>            1998-02-09 05:02  296   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sele0124.hea">sele0124.hea</a>            1998-02-09 05:02  339   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sele0126.hea">sele0126.hea</a>            1998-02-09 05:02  342   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sele0129.hea">sele0129.hea</a>            1998-02-09 05:02  303   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sele0133.hea">sele0133.hea</a>            1998-02-09 05:02  295   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sele0136.hea">sele0136.hea</a>            1998-02-09 05:02  294   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sele0166.hea">sele0166.hea</a>            1998-02-09 05:02  259   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sele0170.hea">sele0170.hea</a>            1998-02-09 05:02  294   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sele0203.hea">sele0203.hea</a>            1998-02-09 05:02  318   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sele0210.hea">sele0210.hea</a>            1998-02-09 05:02  280   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sele0211.hea">sele0211.hea</a>            1998-02-09 05:02  279   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sele0303.hea">sele0303.hea</a>            1998-02-09 05:02  327   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sele0405.hea">sele0405.hea</a>            1998-02-09 05:02  251   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sele0406.hea">sele0406.hea</a>            1998-02-09 05:02  297   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sele0409.hea">sele0409.hea</a>            1998-02-09 05:02  322   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sele0411.hea">sele0411.hea</a>            1998-02-09 05:02  303   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sele0509.hea">sele0509.hea</a>            1998-02-09 05:02  303   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sele0603.hea">sele0603.hea</a>            1998-02-09 05:02  319   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sele0604.hea">sele0604.hea</a>            1998-02-09 05:02  324   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sele0606.hea">sele0606.hea</a>            1998-02-09 05:02  329   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sele0607.hea">sele0607.hea</a>            1998-02-09 05:02  345   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sele0609.hea">sele0609.hea</a>            1998-02-09 05:02  280   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sele0612.hea">sele0612.hea</a>            1998-02-09 05:02  357   header file
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="sele0704.hea">sele0704.hea</a>            1998-02-09 05:02  256   header file
+<img src="/icons/index.gif" alt="[   ]" width="20" height="22"> <a href="ANNOTATORS">ANNOTATORS</a>              2008-05-09 11:48  525   list of annotators
+<img src="/icons/index.gif" alt="[   ]" width="20" height="22"> <a href="RECORDS">RECORDS</a>                 2000-03-29 10:12  808   list of record names
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel100.atr">sel100.atr</a>              1998-02-09 04:59  2.2K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel102.atr">sel102.atr</a>              1998-02-09 04:59  2.1K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel103.atr">sel103.atr</a>              1998-02-09 04:59  2.1K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel104.atr">sel104.atr</a>              1998-02-09 04:59  2.2K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel114.atr">sel114.atr</a>              1998-02-09 04:59  1.8K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel116.atr">sel116.atr</a>              1998-02-09 04:59  2.3K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel117.atr">sel117.atr</a>              1998-02-09 04:59  1.5K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel123.atr">sel123.atr</a>              1998-02-09 04:59  1.5K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel14046.atr">sel14046.atr</a>            1998-02-09 04:59  2.5K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel14157.atr">sel14157.atr</a>            1998-02-09 04:59  2.1K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel14172.atr">sel14172.atr</a>            1998-02-09 04:59  1.3K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel15814.atr">sel15814.atr</a>            1998-02-09 04:59  2.0K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16265.atr">sel16265.atr</a>            1998-02-09 04:59  2.4K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16272.atr">sel16272.atr</a>            1998-02-09 04:59  2.5K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16273.atr">sel16273.atr</a>            1998-02-09 04:59  3.5K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16420.atr">sel16420.atr</a>            1998-02-09 04:59  3.5K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16483.atr">sel16483.atr</a>            1998-02-09 04:59  2.7K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16539.atr">sel16539.atr</a>            1998-02-09 04:59  2.3K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16773.atr">sel16773.atr</a>            1998-02-09 04:59  2.0K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16786.atr">sel16786.atr</a>            1998-02-09 04:59  1.8K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel16795.atr">sel16795.atr</a>            1998-02-09 04:59  2.1K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel17152.atr">sel17152.atr</a>            1998-02-09 04:59  3.2K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel17453.atr">sel17453.atr</a>            1998-02-09 04:59  2.0K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel213.atr">sel213.atr</a>              1998-02-09 04:59  3.4K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel221.atr">sel221.atr</a>              1998-02-09 05:00  3.1K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel223.atr">sel223.atr</a>              1998-02-09 05:00  2.7K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel230.atr">sel230.atr</a>              1998-02-09 05:00  3.3K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel231.atr">sel231.atr</a>              1998-02-09 05:00  4.3K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel232.atr">sel232.atr</a>              1998-02-09 05:00  1.8K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel233.atr">sel233.atr</a>              1998-02-09 05:00  3.4K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel301.atr">sel301.atr</a>              1998-02-09 05:00  2.6K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel302.atr">sel302.atr</a>              1998-02-09 05:00  2.9K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel306.atr">sel306.atr</a>              1998-02-09 05:00  2.0K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel307.atr">sel307.atr</a>              1998-02-09 05:00  1.7K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel308.atr">sel308.atr</a>              1998-02-09 05:00  2.5K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel310.atr">sel310.atr</a>              1998-02-09 05:00  3.9K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel803.atr">sel803.atr</a>              1998-02-09 05:01  2.0K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel808.atr">sel808.atr</a>              1998-02-09 05:01  1.8K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel811.atr">sel811.atr</a>              1998-02-09 05:01  1.4K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel820.atr">sel820.atr</a>              1998-02-09 05:01  2.3K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel821.atr">sel821.atr</a>              1998-02-09 05:01  3.0K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel840.atr">sel840.atr</a>              1998-02-09 05:01  2.3K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel847.atr">sel847.atr</a>              1998-02-09 05:01  1.6K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel853.atr">sel853.atr</a>              1998-02-09 05:01  2.2K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel871.atr">sel871.atr</a>              1998-02-09 05:01  1.8K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel872.atr">sel872.atr</a>              1998-02-09 05:01  1.9K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel873.atr">sel873.atr</a>              1998-02-09 05:01  1.7K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel883.atr">sel883.atr</a>              1998-02-09 05:01  1.8K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sel891.atr">sel891.atr</a>              1998-02-09 05:01  3.0K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0104.atr">sele0104.atr</a>            1998-02-09 05:01  1.7K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0106.atr">sele0106.atr</a>            1998-02-09 05:01  1.8K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0107.atr">sele0107.atr</a>            1998-02-09 05:01  1.6K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0110.atr">sele0110.atr</a>            1998-02-09 05:01  2.0K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0111.atr">sele0111.atr</a>            1998-02-09 05:01  1.8K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0112.atr">sele0112.atr</a>            1998-02-09 05:01  1.4K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0114.atr">sele0114.atr</a>            1998-02-09 05:01  1.6K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0116.atr">sele0116.atr</a>            1998-02-09 05:02  1.2K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0121.atr">sele0121.atr</a>            1998-02-09 05:02  2.8K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0122.atr">sele0122.atr</a>            1998-02-09 05:02  2.9K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0124.atr">sele0124.atr</a>            1998-02-09 05:02  2.2K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0126.atr">sele0126.atr</a>            1998-02-09 05:02  1.9K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0129.atr">sele0129.atr</a>            1998-02-09 05:02  1.5K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0133.atr">sele0133.atr</a>            1998-02-09 05:02  1.6K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0136.atr">sele0136.atr</a>            1998-02-09 05:02  1.6K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0166.atr">sele0166.atr</a>            1998-02-09 05:02  1.7K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0170.atr">sele0170.atr</a>            1998-02-09 05:02  1.8K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0203.atr">sele0203.atr</a>            1998-02-09 05:02  2.6K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0210.atr">sele0210.atr</a>            1998-02-09 05:02  2.1K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0211.atr">sele0211.atr</a>            1998-02-09 05:02  3.1K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0303.atr">sele0303.atr</a>            1998-02-09 05:02  2.1K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0405.atr">sele0405.atr</a>            1998-02-09 05:02  2.4K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0406.atr">sele0406.atr</a>            1998-02-09 05:02  1.9K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0409.atr">sele0409.atr</a>            1998-02-09 05:02  3.4K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0411.atr">sele0411.atr</a>            1998-02-09 05:02  2.3K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0509.atr">sele0509.atr</a>            1998-02-09 05:02  2.0K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0603.atr">sele0603.atr</a>            1998-02-09 05:02  1.9K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0604.atr">sele0604.atr</a>            1998-02-09 05:02  2.3K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0606.atr">sele0606.atr</a>            1998-02-09 05:02  2.9K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0607.atr">sele0607.atr</a>            1998-02-09 05:02  2.3K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0609.atr">sele0609.atr</a>            1998-02-09 05:02  2.2K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0612.atr">sele0612.atr</a>            1998-02-09 05:02  1.5K  reference annotations
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="sele0704.atr">sele0704.atr</a>            1998-02-09 05:02  2.2K  reference annotations
+<hr></pre>
+
+ 
+
+
+
+
+
+<div style="margin: 1.5em 0 0 ; clear: both;">
+<p style="text-align: center; vertical-align: middle; padding: 0; margin: .2em 0;
+	   background: #44a;">
+<a href="/contact-us.shtml" style="text-decoration:none; color: white;">
+<b>Questions and Comments</b></a>
+</p>
+</div>
+<table><tr><td style="padding: 0; vertical-align: top;">
+      <div style="float: left; padding: 1.5em 1em; font-size: 80%;  margin: 0.5em; margin: 0;">
+<p>If you would like help understanding, using, or downloading content, please see our <a href="/faq.shtml">Frequently Asked Questions</a>.
+</p>
+
+<p style="padding-top: .8em;">If you have any comments, feedback, or particular questions regarding this page, please send them to the <a href="/contact-us.shtml" target="_blank">webmaster</a>.</p>
+
+<p>Comments and issues can also be raised on PhysioNet's <a href="https://github.com/MIT-LCP/physionet" target="_blank">GitHub</a> page.
+</p>
+
+<p style="padding-top: .5em;">
+Updated 
+
+Friday, 28 October 2016 at 16:58 EDT</p>
+</div></td>
+<td style="float: right; padding: 0;">
+<div class="funding" style="border: 2px solid #44a; border-radius: .5em; font-weight: 500; font-size: .9em; font-style: italic; line-height: 1.6; padding: 1.5em 2em 2em; margin: 1em .5em;">
+PhysioNet is supported by the <a href="http://www.nigms.nih.gov/" target="_blank">National Institute of General Medical Sciences (NIGMS)</a> and the <a href="https://www.nibib.nih.gov/" target="_blank">National Institute of Biomedical Imaging and Bioengineering (NIBIB)</a> under NIH grant number 2R01GM104987-09.
+</div> <!-- end funding credits -->
+
+
+</td></tr>
+</table>
+
+</article><!-- close article and main, which were  opened in header file -->
+</main>
+
+</body>
+</html>

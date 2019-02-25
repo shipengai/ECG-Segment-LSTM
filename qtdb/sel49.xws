@@ -1,0 +1,3 @@
+-r sel49
+-a man
+-p http://physionet.org/physiobank/database/qtdb/sel49.xws

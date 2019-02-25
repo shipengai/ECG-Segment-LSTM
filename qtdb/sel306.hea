@@ -1,0 +1,4 @@
+sel306 2 250/360 225000
+sel306.dat 212 200 12 0 -25 28662 0 ECG1
+sel306.dat 212 200 12 0 -8 -15069 0 ECG2
+#Produced by xform from record 306, beginning at 0

@@ -1,0 +1,4 @@
+sel808 2 250/128 224999
+sel808.dat 212 200 12 0 -92 -10022 0 ECG1
+sel808.dat 212 200 12 0 112 -13421 0 ECG2
+#Produced by xform from record 808, beginning at 0

@@ -1,0 +1,4 @@
+sel302 2 250/360 225000
+sel302.dat 212 200 12 0 -19 5626 0 ECG1
+sel302.dat 212 200 12 0 16 -32050 0 ECG2
+#Produced by xform from record 302, beginning at 8:00.000

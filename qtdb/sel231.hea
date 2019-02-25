@@ -1,0 +1,9 @@
+sel231 2 250/360 225000
+sel231.dat 212 200 12 0 -45 28998 0 MLII
+sel231.dat 212 200 12 0 55 -16447 0 V1
+# 72 F 2009 2851 x2
+# None
+# AV conduction is quite abnormal with periods of 2:1 AV block, examples
+# of Mobitz II block, and right bundle branch block which appears to be
+# rate-related.  The couplet is probably ventricular.
+#Produced by xform from record 231, beginning at 3:00.000
