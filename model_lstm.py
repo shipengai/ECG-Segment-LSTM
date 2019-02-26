@@ -10,11 +10,13 @@ from torch.utils.data import Dataset, DataLoader
 import matplotlib.pyplot as plt
 import pickle
 import numpy as np
-
+from matplotlib.backends.backend_pdf import PdfPages
 
 TRAIN = False  # 训练标志
 CONTINUE_TRAIN = False  # 接着上次某一次训练结果继续训练
-TEST = True  # 测试标志 设置成True时候，需要指定加载哪个模型
+TEST = False  # 测试标志 设置成True时候，需要指定加载哪个模型
+PAPER_TEST = True  # 得到写paper使用的测试指标
+SAVE_TEST_FIG = True
 EPOCHS = 100
 BATCH_SIZE = 32
 Seqlength = 300
@@ -136,6 +138,48 @@ def restore_net(ckpt):
     return net
 
 
+def get_charateristic(y):
+    p_end = QRS_onset = QRS_end = T_mid = 0
+    for i, val in enumerate(y):
+        if val == 1 and y[i+1] == 0:
+            p_end = i
+        if val == 2 and y[i-1] == 0:
+            QRS_onset = i
+        if val == 0 and y[i-1] == 2:
+            QRS_end = i-1
+        if val == 3 and y[i-1] == 0:
+            T_mid = i
+    return p_end, QRS_onset, QRS_end, T_mid
+
+
+def point_equal(label, predict, tolerte):
+    if predict <= label + tolerte*250 and predict >= label-tolerte*250:
+        return True
+    else:
+        return False
+
+
+def right_point(label_tuple, predict_tuple, tolerte):
+    n = np.array([0, 0, 0, 0])
+    for i,(x,x_p) in enumerate(zip(label_tuple,predict_tuple)):
+        if point_equal(x, x_p, tolerte):
+            n[i] = 1
+    return n
+
+
+def plotlabel(y, bias):
+    cmap = ['k', 'r', 'g', 'b', 'c', 'y']
+    start = end = 0
+    for i in range(len(y) - 1):
+        if y[i] != y[i + 1]:
+            end = i
+            plt.plot(np.arange(start, end), y[start:end] - bias, cmap[int(y[i])])
+            start = i + 1
+        if i == len(y) - 2:
+            end = len(y) - 1
+            plt.plot(np.arange(start, end), y[start:end] - bias, cmap[int(y[i])])
+
+
 if __name__ == '__main__':
 
     # loading data
@@ -179,18 +223,50 @@ if __name__ == '__main__':
             x = np.arange(len(predict))
             plt.subplot(2, 2, i+1)
             plt.plot(x, signal[:, 0])
-
-            def plotlabel(y,bias):
-                cmap = ['k', 'r', 'g', 'b', 'c', 'y']
-                start = end = 0
-                for i in range(len(y) - 1):
-                    if y[i] != y[i + 1]:
-                        end = i
-                        plt.plot(np.arange(start, end), y[start:end]-bias, cmap[int(y[i])])
-                        start = i + 1
-                    if i == len(y)-2:
-                        end = len(y)-1
-                        plt.plot(np.arange(start, end), y[start:end] - bias, cmap[int(y[i])])
             plotlabel(label, 0.2)
             plotlabel(predict, 0.4)
         plt.show()
+
+    if PAPER_TEST:
+        net = restore_net(save_path + 'epoch_99.ckpt')
+        net.eval()
+        print('waiting several minutes')
+        right_point_num = np.array([0, 0, 0, 0])
+        if SAVE_TEST_FIG:
+            with PdfPages('test.pdf') as pdf:
+                for i in range(len(ecg_val_db)):
+                    sample = ecg_val_db[i]
+                    signal = sample['signal'].numpy()
+                    label = sample['label'].numpy()
+                    # 得到预测结果
+                    output = net(sample['signal'].unsqueeze(0))
+                    _, predict = torch.max(output, 1)
+                    predict = predict.numpy()
+
+                    x = np.arange(Seqlength)
+                    plt.plot(x, signal[:, 0])
+                    plotlabel(label, 0.2)
+                    plotlabel(predict, 0.4)
+                    pdf.savefig()
+                    plt.close()
+
+                    # 得到p-end, QRS onset end , T-middle
+                    p_end, QRS_onset, QRS_end, T_mid = get_charateristic(label)
+                    p_end_p, QRS_onset_p, QRS_end_p, T_mid_p = get_charateristic(predict)
+                    right_point_num += right_point((p_end, QRS_onset, QRS_end, T_mid),
+                                                   (p_end_p, QRS_onset_p, QRS_end_p, T_mid_p), 0.1)
+        else:
+            for i in range(len(ecg_val_db)):
+                sample = ecg_val_db[i]
+                signal = sample['signal'].numpy()
+                label = sample['label'].numpy()
+                # 得到预测结果
+                output = net(sample['signal'].unsqueeze(0))
+                _, predict = torch.max(output, 1)
+                predict = predict.numpy()
+                # 得到p-end, QRS onset end , T-middle
+                p_end, QRS_onset, QRS_end, T_mid = get_charateristic(label)
+                p_end_p, QRS_onset_p, QRS_end_p, T_mid_p = get_charateristic(predict)
+                right_point_num += right_point((p_end, QRS_onset, QRS_end, T_mid),
+                                               (p_end_p, QRS_onset_p, QRS_end_p, T_mid_p), 0.025)
+        print(right_point_num/len(ecg_train_db))

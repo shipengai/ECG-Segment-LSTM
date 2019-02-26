@@ -230,6 +230,7 @@ for record_name in record_names:
             # 确定p波的起始和结束位置
             if Ann[i - 1][1] == '(':
                 pstart = Ann[i - 1][0]
+                # pstart = Ann[i][0]  # p波点
             if Ann[i + 1][1] == ')':
                 pend = Ann[i + 1][0]
             # p波紧随其后的就是QRS， 确定QRS波的位置
