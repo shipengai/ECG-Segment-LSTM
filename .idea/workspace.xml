@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="81fad831-b8ab-43a0-bae6-1ed61ab1f850" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ckpt/epoch_99.ckpt" beforeDir="false" afterPath="$PROJECT_DIR$/ckpt/epoch_99.ckpt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model_lstm.py" beforeDir="false" afterPath="$PROJECT_DIR$/model_lstm.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/qtdatabase.py" beforeDir="false" afterPath="$PROJECT_DIR$/qtdatabase.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/qtdb_pkl/example.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/qtdb_pkl/example.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/qtdb_pkl/train_data.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/qtdb_pkl/train_data.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/qtdb_pkl/val_data.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/qtdb_pkl/val_data.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/test.pdf" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,27 +18,30 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/ECG_Segment$dataprocess.coverage" NAME="dataprocess Coverage Results" MODIFIED="1550114575312" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/ECG_Segment$model_lstm.coverage" NAME="model_lstm Coverage Results" MODIFIED="1551148483282" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ECG_Segment$model_lstm.coverage" NAME="model_lstm Coverage Results" MODIFIED="1551165653338" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ECG_Segment$tmp.coverage" NAME="tmp Coverage Results" MODIFIED="1549953184303" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ECG_Segment$multicolored_line.coverage" NAME="multicolored_line Coverage Results" MODIFIED="1549957016386" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/ECG_Segment$qtdatabase.coverage" NAME="qtdatabase Coverage Results" MODIFIED="1551062193397" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ECG_Segment$qtdatabase.coverage" NAME="qtdatabase Coverage Results" MODIFIED="1551149744944" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/qtdatabase.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-6240">
-              <caret line="15" selection-start-line="15" selection-end-line="15" selection-end-column="52" />
+            <state relative-caret-position="-5772">
+              <caret line="34" column="15" selection-start-line="34" selection-start-column="15" selection-end-line="34" selection-end-column="15" />
+              <folding>
+                <element signature="e#185#194#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/model_lstm.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1408">
-              <caret line="246" column="42" selection-start-line="246" selection-start-column="42" selection-end-line="246" selection-end-column="42" />
+            <state relative-caret-position="66">
+              <caret line="272" column="9" lean-forward="true" selection-start-line="272" selection-start-column="9" selection-end-line="272" selection-end-column="9" />
               <folding>
                 <element signature="e#95#104#0" expanded="true" />
               </folding>
@@ -85,11 +92,11 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="69" />
-    <option name="y" value="42" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="561" />
+    <option name="y" value="86" />
     <option name="width" value="1851" />
-    <option name="height" value="1012" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -273,18 +280,18 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="154323000" />
+    <option name="totallyTimeSpent" value="163001000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="69" y="42" width="1851" height="1012" extended-state="0" />
+    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11135734" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11111111" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.31073445" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.28735632" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4180791" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -315,13 +322,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/qtdatabase.py</url>
-          <line>313</line>
+          <line>314</line>
           <option name="timeStamp" value="114" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/model_lstm.py</url>
-          <line>236</line>
-          <option name="timeStamp" value="117" />
+          <line>282</line>
+          <option name="timeStamp" value="120" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -460,19 +467,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/qtdatabase.py">
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6240">
-          <caret line="15" selection-start-line="15" selection-end-line="15" selection-end-column="52" />
+        <state relative-caret-position="356">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="1740" selection-start-line="1740" selection-end-line="1740" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/model_lstm.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1408">
-          <caret line="246" column="42" selection-start-line="246" selection-start-column="42" selection-end-line="246" selection-end-column="42" />
+        <state relative-caret-position="66">
+          <caret line="272" column="9" lean-forward="true" selection-start-line="272" selection-start-column="9" selection-end-line="272" selection-end-column="9" />
           <folding>
             <element signature="e#95#104#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qtdatabase.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5772">
+          <caret line="34" column="15" selection-start-line="34" selection-start-column="15" selection-end-line="34" selection-end-column="15" />
+          <folding>
+            <element signature="e#185#194#0" expanded="true" />
           </folding>
         </state>
       </provider>

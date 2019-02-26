@@ -226,11 +226,11 @@ for record_name in record_names:
         ann = Ann[i]
         # 先找到P波,根据p波查找整个波形
         if ann[1] == 'p':
-            pstart = pend = qpos = rpos = spos = tpos = tend = 0
+            pstart = ppos = pend = qpos = rpos = spos = tpos = tend = 0
             # 确定p波的起始和结束位置
+            ppos = Ann[i][0]  # p波点
             if Ann[i - 1][1] == '(':
                 pstart = Ann[i - 1][0]
-                # pstart = Ann[i][0]  # p波点
             if Ann[i + 1][1] == ')':
                 pend = Ann[i + 1][0]
             # p波紧随其后的就是QRS， 确定QRS波的位置
@@ -254,14 +254,15 @@ for record_name in record_names:
                         tend = Ann[i + 6][0]
                 else:
                     print("can't find t wave")
-            poses.append((pstart - start, pend - start, qpos - start,
+            poses.append((pstart - start, ppos - start, pend - start, qpos - start,
                           rpos - start, spos - start, tpos - start, tend - start))
     label = np.zeros((end - start + 1))
     for pose in poses:
-        (pstart, pend, qpos, rpos, spos, tpos, tend) = pose
-        label[pstart: pend] = 1  # P Wave
-        label[qpos: spos] = 2  # QRS complex
-        label[tpos: tend] = 3  # half t Wave
+        (pstart, ppos, pend, qpos, rpos, spos, tpos, tend) = pose
+        label[ppos: pend] = 1  # half P Wave
+        label[qpos: rpos] = 2  # QR
+        label[rpos: spos] = 3  # RS
+        label[tpos: tend] = 4  # half t Wave
 
     # 计算相邻两个片段的min(前一个波的tend与后一个波的pstart的距离)
     # 计算一个片段的最大pt长度

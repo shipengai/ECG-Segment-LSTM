@@ -20,7 +20,7 @@ SAVE_TEST_FIG = True
 EPOCHS = 100
 BATCH_SIZE = 32
 Seqlength = 300
-NUM_SEGS_CLASS = 4
+NUM_SEGS_CLASS = 5
 
 qtdb_pkl = './qtdb_pkl/'  # 数据预处理后的路径，便于调试网络
 save_path = './ckpt/'  # 保存模型的路径
@@ -139,29 +139,31 @@ def restore_net(ckpt):
 
 
 def get_charateristic(y):
-    p_end = QRS_onset = QRS_end = T_mid = 0
+    Ppos = Qpos = Rpos =Spos = Tpos = 0
     for i, val in enumerate(y):
-        if val == 1 and y[i+1] == 0:
-            p_end = i
+        if val == 1 and y[i-1] == 0:
+            Ppos = i
         if val == 2 and y[i-1] == 0:
-            QRS_onset = i
-        if val == 0 and y[i-1] == 2:
-            QRS_end = i-1
-        if val == 3 and y[i-1] == 0:
-            T_mid = i
-    return p_end, QRS_onset, QRS_end, T_mid
+            Qpos = i
+        if val == 2 and y[i+1] == 3:
+            Rpos = i
+        if val == 3 and y[i+1] == 0:
+            Spos = i
+        if val == 4 and y[i-1] == 0:
+            Tpos = i
+    return Ppos, Qpos, Rpos, Spos, Tpos
 
 
 def point_equal(label, predict, tolerte):
-    if predict <= label + tolerte*250 and predict >= label-tolerte*250:
+    if predict <= label + tolerte * 250 and predict >= label- tolerte * 250:
         return True
     else:
         return False
 
 
 def right_point(label_tuple, predict_tuple, tolerte):
-    n = np.array([0, 0, 0, 0])
-    for i,(x,x_p) in enumerate(zip(label_tuple,predict_tuple)):
+    n = np.array([0, 0, 0, 0, 0])
+    for i, (x, x_p) in enumerate(zip(label_tuple, predict_tuple)):
         if point_equal(x, x_p, tolerte):
             n[i] = 1
     return n
@@ -178,6 +180,13 @@ def plotlabel(y, bias):
         if i == len(y) - 2:
             end = len(y) - 1
             plt.plot(np.arange(start, end), y[start:end] - bias, cmap[int(y[i])])
+
+
+def caculate_error(label_tuple, predict_tuple):
+    error = np.zeros((5,))
+    for i, (x, x_p) in enumerate(zip(label_tuple, predict_tuple)):
+        error[i] = (x - x_p)/250*100  # (ms)
+    return error
 
 
 if __name__ == '__main__':
@@ -231,7 +240,8 @@ if __name__ == '__main__':
         net = restore_net(save_path + 'epoch_99.ckpt')
         net.eval()
         print('waiting several minutes')
-        right_point_num = np.array([0, 0, 0, 0])
+        right_point_num = np.array([0, 0, 0, 0, 0])
+        error_array = np.zeros(shape=(len(ecg_val_db), 5))
         if SAVE_TEST_FIG:
             with PdfPages('test.pdf') as pdf:
                 for i in range(len(ecg_val_db)):
@@ -250,11 +260,14 @@ if __name__ == '__main__':
                     pdf.savefig()
                     plt.close()
 
+                    label_points = get_charateristic(label)
+                    predict_points = get_charateristic(predict)
+
+                    error_array[i] = caculate_error(label_points, predict_points)
+
                     # 得到p-end, QRS onset end , T-middle
-                    p_end, QRS_onset, QRS_end, T_mid = get_charateristic(label)
-                    p_end_p, QRS_onset_p, QRS_end_p, T_mid_p = get_charateristic(predict)
-                    right_point_num += right_point((p_end, QRS_onset, QRS_end, T_mid),
-                                                   (p_end_p, QRS_onset_p, QRS_end_p, T_mid_p), 0.1)
+                    right_point_num += right_point(label_points,
+                                                   predict_points, 0.016)
         else:
             for i in range(len(ecg_val_db)):
                 sample = ecg_val_db[i]
@@ -265,8 +278,10 @@ if __name__ == '__main__':
                 _, predict = torch.max(output, 1)
                 predict = predict.numpy()
                 # 得到p-end, QRS onset end , T-middle
-                p_end, QRS_onset, QRS_end, T_mid = get_charateristic(label)
-                p_end_p, QRS_onset_p, QRS_end_p, T_mid_p = get_charateristic(predict)
-                right_point_num += right_point((p_end, QRS_onset, QRS_end, T_mid),
-                                               (p_end_p, QRS_onset_p, QRS_end_p, T_mid_p), 0.025)
-        print(right_point_num/len(ecg_train_db))
+                right_point_num += right_point(get_charateristic(label),
+                                               get_charateristic(predict), 0.025)
+        means = np.mean(error_array, axis=0)
+        SD = np.std(error_array, axis=0)
+        print(means)
+        print(SD)
+        print(right_point_num/len(ecg_val_db))
