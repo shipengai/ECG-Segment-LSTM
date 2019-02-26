@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="81fad831-b8ab-43a0-bae6-1ed61ab1f850" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/ckpt/epoch_99.ckpt" beforeDir="false" afterPath="$PROJECT_DIR$/ckpt/epoch_99.ckpt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model_lstm.py" beforeDir="false" afterPath="$PROJECT_DIR$/model_lstm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qtdatabase.py" beforeDir="false" afterPath="$PROJECT_DIR$/qtdatabase.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qtdb_pkl/example.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/qtdb_pkl/example.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qtdb_pkl/train_data.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/qtdb_pkl/train_data.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qtdb_pkl/val_data.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/qtdb_pkl/val_data.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/test.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,7 +19,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/qtdatabase.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-5772">
@@ -40,8 +34,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/model_lstm.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="272" column="9" lean-forward="true" selection-start-line="272" selection-start-column="9" selection-end-line="272" selection-end-column="9" />
+            <state relative-caret-position="226">
+              <caret line="276" column="52" selection-start-line="276" selection-start-column="52" selection-end-line="276" selection-end-column="52" />
               <folding>
                 <element signature="e#95#104#0" expanded="true" />
               </folding>
@@ -49,12 +43,12 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="214">
-                <caret line="53" column="21" selection-start-line="53" selection-start-column="21" selection-end-line="53" selection-end-column="21" />
+              <first_editor relative-caret-position="-94">
+                <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
               </first_editor>
               <second_editor />
             </state>
@@ -86,17 +80,17 @@
         <option value="$PROJECT_DIR$/tmp.py" />
         <option value="$PROJECT_DIR$/dataprocess.py" />
         <option value="$PROJECT_DIR$/vis.py" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/qtdatabase.py" />
         <option value="$PROJECT_DIR$/model_lstm.py" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="561" />
-    <option name="y" value="86" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="65" />
+    <option name="y" value="33" />
     <option name="width" value="1851" />
-    <option name="height" value="1040" />
+    <option name="height" value="1012" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -280,18 +274,18 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="163001000" />
+    <option name="totallyTimeSpent" value="164869000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
+    <frame x="65" y="33" width="1851" height="1012" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11111111" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11135734" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.28735632" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.31073445" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4180791" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -457,16 +451,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="214">
-            <caret line="53" column="21" selection-start-line="53" selection-start-column="21" selection-end-line="53" selection-end-column="21" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="356">
@@ -481,16 +465,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model_lstm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="272" column="9" lean-forward="true" selection-start-line="272" selection-start-column="9" selection-end-line="272" selection-end-column="9" />
-          <folding>
-            <element signature="e#95#104#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/qtdatabase.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-5772">
@@ -498,6 +472,26 @@
           <folding>
             <element signature="e#185#194#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model_lstm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="276" column="52" selection-start-line="276" selection-start-column="52" selection-end-line="276" selection-end-column="52" />
+          <folding>
+            <element signature="e#95#104#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="-94">
+            <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
